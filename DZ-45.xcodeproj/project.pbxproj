@@ -13,6 +13,10 @@
 		10CA899522216C500020C4C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10CA899422216C500020C4C5 /* Assets.xcassets */; };
 		10CA899822216C500020C4C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10CA899622216C500020C4C5 /* LaunchScreen.storyboard */; };
 		10CA899B22216C500020C4C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA899A22216C500020C4C5 /* main.m */; };
+		10CA89A32221715E0020C4C5 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89A22221715E0020C4C5 /* NetworkManager.m */; };
+		10CA89A622219A8F0020C4C5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89A522219A8F0020C4C5 /* User.m */; };
+		10CA89A92221A8850020C4C5 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89A82221A8850020C4C5 /* UserProfileViewController.m */; };
+		FD576569475BCCA4AFCFEA0C /* libPods-DZ-45.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BCC833D697E8DEE2CA0649 /* libPods-DZ-45.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,15 @@
 		10CA899722216C500020C4C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10CA899922216C500020C4C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10CA899A22216C500020C4C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		10CA89A12221715E0020C4C5 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		10CA89A22221715E0020C4C5 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		10CA89A422219A8F0020C4C5 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		10CA89A522219A8F0020C4C5 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		10CA89A72221A8850020C4C5 /* UserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		10CA89A82221A8850020C4C5 /* UserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		66208C2C96F699672A472208 /* Pods-DZ-45.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZ-45.release.xcconfig"; path = "Target Support Files/Pods-DZ-45/Pods-DZ-45.release.xcconfig"; sourceTree = "<group>"; };
+		7FB165CE5F27492B23083751 /* Pods-DZ-45.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZ-45.debug.xcconfig"; path = "Target Support Files/Pods-DZ-45/Pods-DZ-45.debug.xcconfig"; sourceTree = "<group>"; };
+		80BCC833D697E8DEE2CA0649 /* libPods-DZ-45.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DZ-45.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD576569475BCCA4AFCFEA0C /* libPods-DZ-45.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +58,8 @@
 			children = (
 				10CA898A22216C4F0020C4C5 /* DZ-45 */,
 				10CA898922216C4F0020C4C5 /* Products */,
+				3DFCEAA364B7112AC32CD974 /* Pods */,
+				A7405BC378647704324B26D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,10 +74,16 @@
 		10CA898A22216C4F0020C4C5 /* DZ-45 */ = {
 			isa = PBXGroup;
 			children = (
+				10CA89A422219A8F0020C4C5 /* User.h */,
+				10CA89A522219A8F0020C4C5 /* User.m */,
+				10CA89A12221715E0020C4C5 /* NetworkManager.h */,
+				10CA89A22221715E0020C4C5 /* NetworkManager.m */,
 				10CA898B22216C4F0020C4C5 /* AppDelegate.h */,
 				10CA898C22216C4F0020C4C5 /* AppDelegate.m */,
 				10CA898E22216C4F0020C4C5 /* ViewController.h */,
 				10CA898F22216C4F0020C4C5 /* ViewController.m */,
+				10CA89A72221A8850020C4C5 /* UserProfileViewController.h */,
+				10CA89A82221A8850020C4C5 /* UserProfileViewController.m */,
 				10CA899122216C4F0020C4C5 /* Main.storyboard */,
 				10CA899422216C500020C4C5 /* Assets.xcassets */,
 				10CA899622216C500020C4C5 /* LaunchScreen.storyboard */,
@@ -71,6 +93,23 @@
 			path = "DZ-45";
 			sourceTree = "<group>";
 		};
+		3DFCEAA364B7112AC32CD974 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FB165CE5F27492B23083751 /* Pods-DZ-45.debug.xcconfig */,
+				66208C2C96F699672A472208 /* Pods-DZ-45.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A7405BC378647704324B26D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80BCC833D697E8DEE2CA0649 /* libPods-DZ-45.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,6 +117,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10CA899E22216C500020C4C5 /* Build configuration list for PBXNativeTarget "DZ-45" */;
 			buildPhases = (
+				9D5420EA46DA35BE8B8BC49F /* [CP] Check Pods Manifest.lock */,
 				10CA898422216C4F0020C4C5 /* Sources */,
 				10CA898522216C4F0020C4C5 /* Frameworks */,
 				10CA898622216C4F0020C4C5 /* Resources */,
@@ -136,12 +176,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9D5420EA46DA35BE8B8BC49F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DZ-45-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		10CA898422216C4F0020C4C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10CA89A622219A8F0020C4C5 /* User.m in Sources */,
+				10CA89A32221715E0020C4C5 /* NetworkManager.m in Sources */,
 				10CA899022216C4F0020C4C5 /* ViewController.m in Sources */,
+				10CA89A92221A8850020C4C5 /* UserProfileViewController.m in Sources */,
 				10CA899B22216C500020C4C5 /* main.m in Sources */,
 				10CA898D22216C4F0020C4C5 /* AppDelegate.m in Sources */,
 			);
@@ -283,6 +351,7 @@
 		};
 		10CA899F22216C500020C4C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FB165CE5F27492B23083751 /* Pods-DZ-45.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +369,7 @@
 		};
 		10CA89A022216C500020C4C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66208C2C96F699672A472208 /* Pods-DZ-45.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
