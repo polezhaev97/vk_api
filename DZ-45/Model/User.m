@@ -16,6 +16,8 @@
     if (self) {
         self.name = [dictionary objectForKey:@"first_name"];
         self.surname = [dictionary objectForKey:@"last_name"];
+        self.userID = [dictionary objectForKey:@"user_id"];
+        
         
       NSString* stringURL = [dictionary objectForKey:@"photo_50"];
         self.imageURL = [[NSURL alloc] initWithString:stringURL];

@@ -8,10 +8,12 @@
 
 #import "NetworkManager.h"
 #import "AFNetworking.h"
+#import "AccessToken.h"
 
 @interface NetworkManager ()
 
 @property (strong, nonatomic) AFHTTPSessionManager* requestOperationManager;
+@property (strong, nonatomic) AccessToken* accessToken;
 
 @end
 
@@ -36,6 +38,21 @@
     return self;
 }
 
+-(void) authorizeUser: (void(^)(BOOL isSuccess)) completion{
+    
+    LoginViewController* vc = [[LoginViewController alloc] initWithCompletionBlock:^(AccessToken* token){
+        self.accessToken = token;
+        completion(token !=nil);
+    }];
+    
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:vc];
+    UIViewController* mainVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    [mainVC presentViewController: navController
+                         animated:YES
+                       completion:nil];
+}
+
 - (void) getFriendsWithOffset:(NSInteger) offset
                         count:(NSInteger) count
                     onSuccess:(void(^)(NSArray* friends)) success
@@ -48,7 +65,7 @@
      @(count),      @"count",
      @(offset),     @"offset",
      @"photo_50",   @"fields",
-     @"a7431503c25bf34087429a4d493a0ca25c572b80c4fdbad25b11200af87138c41ce89491fda276130fe43", @"access_token",
+     self.accessToken.token, @"access_token",
      @"nom",        @"name_case",
      @"5.92", @"version",
      nil];
@@ -75,4 +92,41 @@
                               }];
 }
 
+- (void) getUserInfo:(NSString*) userId
+                    onSuccess:(void(^)(UserExtendedInfo* userInfo)) success
+                    onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure{
+    
+    NSMutableDictionary* params =
+    [NSMutableDictionary dictionaryWithObjectsAndKeys:
+      @"5.92", @"version",
+     userId,   @"user_ids",
+     @"city, photo_400_orig, sex, online, education",       @"fields",
+     @"Nom", @"name_case",
+    
+     nil];
+    
+    if (self.accessToken ) {
+        [params setObject:self.accessToken.token forKey:@"access_token"];
+    }
+    
+    [self.requestOperationManager GET:@"users.get"
+                           parameters:params
+                             progress:^(NSProgress * _Nonnull downloadProgress) {
+                                 //
+                             }
+                              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                NSLog(@"JSON %@ ", responseObject);
+                                  
+                                  NSDictionary* jsonUser = [[responseObject objectForKey:@"response"] firstObject];
+                                 
+                                  UserExtendedInfo* info = [[UserExtendedInfo alloc] initWith:jsonUser];
+                               
+                                  success(info);
+                                  
+                              }
+                              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                  
+                              }];
+    
+}
 @end

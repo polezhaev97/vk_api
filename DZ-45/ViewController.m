@@ -10,10 +10,13 @@
 #import "NetworkManager.h"
 #import "UIKit+AFNetworking.h"
 #import "UserProfileViewController.h"
+
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray* friendsArray;
 @property (weak, nonatomic) UITableView* tableView;
+@property (assign, nonatomic) BOOL alreadyLoaded;
+
 @end
 
 @implementation ViewController
@@ -24,7 +27,7 @@ static NSInteger friendsInRequest = 15;
     [super viewDidLoad];
     
     self.friendsArray = [[NSMutableArray alloc] init];
-    [self getFriendsFromServer];
+ 
     
     CGRect frame = self.view.frame;
     
@@ -39,6 +42,20 @@ static NSInteger friendsInRequest = 15;
     [tableView reloadData];
     
     self.tableView = tableView;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (!self.alreadyLoaded) {
+        self.alreadyLoaded = true;
+        [[NetworkManager sharedInstance] authorizeUser:^(BOOL isSuccess) {
+            NSLog(@"isOk %d ", isSuccess);
+            if (isSuccess) {
+                   [self getFriendsFromServer];
+            }
+        }];
+    }
 }
 
 #pragma mark - API
@@ -78,8 +95,6 @@ static NSInteger friendsInRequest = 15;
          
          cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", currentUser.name, currentUser.surname];
          [cell.imageView setImageWithURL:currentUser.imageURL];
-         
-         
      }
     
     return cell;
@@ -95,6 +110,8 @@ static NSInteger friendsInRequest = 15;
         
     }else{
         UserProfileViewController* vc = [[UserProfileViewController alloc] init];
+        User* currentUser =[self.friendsArray objectAtIndex:indexPath.row];
+        vc.userId = currentUser.userID;
         [self.navigationController pushViewController:vc animated:YES];
     }
     

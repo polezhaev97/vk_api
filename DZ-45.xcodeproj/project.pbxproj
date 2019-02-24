@@ -16,6 +16,9 @@
 		10CA89A32221715E0020C4C5 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89A22221715E0020C4C5 /* NetworkManager.m */; };
 		10CA89A622219A8F0020C4C5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89A522219A8F0020C4C5 /* User.m */; };
 		10CA89A92221A8850020C4C5 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89A82221A8850020C4C5 /* UserProfileViewController.m */; };
+		10CA89AD2222BF3C0020C4C5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89AC2222BF3C0020C4C5 /* LoginViewController.m */; };
+		10CA89B02222C99F0020C4C5 /* AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89AF2222C99F0020C4C5 /* AccessToken.m */; };
+		10CA89B3222327E50020C4C5 /* UserExtendedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89B2222327E50020C4C5 /* UserExtendedInfo.m */; };
 		FD576569475BCCA4AFCFEA0C /* libPods-DZ-45.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BCC833D697E8DEE2CA0649 /* libPods-DZ-45.a */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +39,12 @@
 		10CA89A522219A8F0020C4C5 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		10CA89A72221A8850020C4C5 /* UserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
 		10CA89A82221A8850020C4C5 /* UserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		10CA89AB2222BF3C0020C4C5 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		10CA89AC2222BF3C0020C4C5 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		10CA89AE2222C99F0020C4C5 /* AccessToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessToken.h; sourceTree = "<group>"; };
+		10CA89AF2222C99F0020C4C5 /* AccessToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessToken.m; sourceTree = "<group>"; };
+		10CA89B1222327E50020C4C5 /* UserExtendedInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserExtendedInfo.h; sourceTree = "<group>"; };
+		10CA89B2222327E50020C4C5 /* UserExtendedInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserExtendedInfo.m; sourceTree = "<group>"; };
 		66208C2C96F699672A472208 /* Pods-DZ-45.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZ-45.release.xcconfig"; path = "Target Support Files/Pods-DZ-45/Pods-DZ-45.release.xcconfig"; sourceTree = "<group>"; };
 		7FB165CE5F27492B23083751 /* Pods-DZ-45.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZ-45.debug.xcconfig"; path = "Target Support Files/Pods-DZ-45/Pods-DZ-45.debug.xcconfig"; sourceTree = "<group>"; };
 		80BCC833D697E8DEE2CA0649 /* libPods-DZ-45.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DZ-45.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,8 +83,6 @@
 		10CA898A22216C4F0020C4C5 /* DZ-45 */ = {
 			isa = PBXGroup;
 			children = (
-				10CA89A422219A8F0020C4C5 /* User.h */,
-				10CA89A522219A8F0020C4C5 /* User.m */,
 				10CA89A12221715E0020C4C5 /* NetworkManager.h */,
 				10CA89A22221715E0020C4C5 /* NetworkManager.m */,
 				10CA898B22216C4F0020C4C5 /* AppDelegate.h */,
@@ -84,6 +91,9 @@
 				10CA898F22216C4F0020C4C5 /* ViewController.m */,
 				10CA89A72221A8850020C4C5 /* UserProfileViewController.h */,
 				10CA89A82221A8850020C4C5 /* UserProfileViewController.m */,
+				10CA89AB2222BF3C0020C4C5 /* LoginViewController.h */,
+				10CA89AC2222BF3C0020C4C5 /* LoginViewController.m */,
+				10CA89B4222327FB0020C4C5 /* Model */,
 				10CA899122216C4F0020C4C5 /* Main.storyboard */,
 				10CA899422216C500020C4C5 /* Assets.xcassets */,
 				10CA899622216C500020C4C5 /* LaunchScreen.storyboard */,
@@ -91,6 +101,19 @@
 				10CA899A22216C500020C4C5 /* main.m */,
 			);
 			path = "DZ-45";
+			sourceTree = "<group>";
+		};
+		10CA89B4222327FB0020C4C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10CA89B1222327E50020C4C5 /* UserExtendedInfo.h */,
+				10CA89B2222327E50020C4C5 /* UserExtendedInfo.m */,
+				10CA89AE2222C99F0020C4C5 /* AccessToken.h */,
+				10CA89AF2222C99F0020C4C5 /* AccessToken.m */,
+				10CA89A422219A8F0020C4C5 /* User.h */,
+				10CA89A522219A8F0020C4C5 /* User.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3DFCEAA364B7112AC32CD974 /* Pods */ = {
@@ -209,7 +232,10 @@
 				10CA89A622219A8F0020C4C5 /* User.m in Sources */,
 				10CA89A32221715E0020C4C5 /* NetworkManager.m in Sources */,
 				10CA899022216C4F0020C4C5 /* ViewController.m in Sources */,
+				10CA89B02222C99F0020C4C5 /* AccessToken.m in Sources */,
+				10CA89B3222327E50020C4C5 /* UserExtendedInfo.m in Sources */,
 				10CA89A92221A8850020C4C5 /* UserProfileViewController.m in Sources */,
+				10CA89AD2222BF3C0020C4C5 /* LoginViewController.m in Sources */,
 				10CA899B22216C500020C4C5 /* main.m in Sources */,
 				10CA898D22216C4F0020C4C5 /* AppDelegate.m in Sources */,
 			);

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSString* surname;
 @property (strong, nonatomic) NSURL* imageURL;
+@property(strong,nonatomic) NSString* userID;
 
 - (instancetype)initWithDictionary: (NSDictionary*) dictionary;
 

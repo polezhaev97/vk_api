@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserProfileViewController : UIViewController
 
+@property(strong,nonatomic) NSString* userId;
+
 @end
 
 NS_ASSUME_NONNULL_END

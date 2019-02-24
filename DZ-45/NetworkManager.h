@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "LoginViewController.h"
+#import "UserExtendedInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
                         count:(NSInteger) count
                     onSuccess:(void(^)(NSArray* friends)) success
                     onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
+
+- (void) getUserInfo:(NSString*) userId
+           onSuccess:(void(^)(UserExtendedInfo* userInfo)) success
+           onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
+
+-(void) authorizeUser: (void(^)(BOOL isSuccess)) completion;
 
 @end
 
