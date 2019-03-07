@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "LoginViewController.h"
-
+#import "UserProfileViewController.h"
+#import "GroupWallViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,7 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    ViewController* controller =[[ViewController alloc] init];
+    //ViewController* controller =[[ViewController alloc] init];
+    GroupWallViewController* controller = [[GroupWallViewController alloc] init];
     
     UINavigationController* navController =[[UINavigationController alloc] initWithRootViewController:controller];
     self.window.rootViewController = navController;

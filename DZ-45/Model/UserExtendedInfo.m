@@ -16,8 +16,8 @@
     if (self) {
         self.name = [dictionary objectForKey:@"first_name"];
         self.surname = [dictionary objectForKey:@"last_name"];
-        self.cityName = @"tr";
-        //[dictionary valueForKeyPath:@"city.title"];
+        self.cityName =@"spb";
+        //[dictionary objectForKey:@"city"];
         NSInteger data =[[dictionary objectForKey:@"sex"] integerValue];
         self.gender = [self getGender:data];
         self.universityName = [dictionary objectForKey:@"university_name"];

@@ -10,6 +10,10 @@
 #import "User.h"
 #import "LoginViewController.h"
 #import "UserExtendedInfo.h"
+#import "Post.h"
+#import "PostComments.h"
+#import "ShortProfile.h"
+#import "WallData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,6 +32,17 @@ NS_ASSUME_NONNULL_BEGIN
            onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
 -(void) authorizeUser: (void(^)(BOOL isSuccess)) completion;
+
+-(void) getGroupWall:(NSString*) groupID
+          withOffset:(NSInteger) offset
+               count:(NSInteger) count
+           onSuccess:(void(^)(WallData* data)) success
+           onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
+
+-(void) getCommentsWall:(NSString*) groupID
+             withOffset:(NSNumber*) postID
+              onSuccess:(void(^)(NSArray* posts)) success
+              onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
 @end
 

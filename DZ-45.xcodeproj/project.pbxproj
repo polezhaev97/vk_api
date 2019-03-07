@@ -19,6 +19,13 @@
 		10CA89AD2222BF3C0020C4C5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89AC2222BF3C0020C4C5 /* LoginViewController.m */; };
 		10CA89B02222C99F0020C4C5 /* AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89AF2222C99F0020C4C5 /* AccessToken.m */; };
 		10CA89B3222327E50020C4C5 /* UserExtendedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89B2222327E50020C4C5 /* UserExtendedInfo.m */; };
+		10DBC80B222E7A4E002E6CD8 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC80A222E7A4E002E6CD8 /* Post.m */; };
+		10DBC80E222E85E1002E6CD8 /* GroupWallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC80D222E85E1002E6CD8 /* GroupWallViewController.m */; };
+		10DBC811222E8DC0002E6CD8 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC810222E8DC0002E6CD8 /* PostCell.m */; };
+		10DBC815222F197D002E6CD8 /* PostComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC814222F197D002E6CD8 /* PostComments.m */; };
+		10DBC818222F19CA002E6CD8 /* PostCommentsWallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC817222F19CA002E6CD8 /* PostCommentsWallViewController.m */; };
+		10DBC81F22304A0B002E6CD8 /* ShortProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC81E22304A0B002E6CD8 /* ShortProfile.m */; };
+		10DBC82222304DBD002E6CD8 /* WallData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC82122304DBD002E6CD8 /* WallData.m */; };
 		FD576569475BCCA4AFCFEA0C /* libPods-DZ-45.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BCC833D697E8DEE2CA0649 /* libPods-DZ-45.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +52,20 @@
 		10CA89AF2222C99F0020C4C5 /* AccessToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessToken.m; sourceTree = "<group>"; };
 		10CA89B1222327E50020C4C5 /* UserExtendedInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserExtendedInfo.h; sourceTree = "<group>"; };
 		10CA89B2222327E50020C4C5 /* UserExtendedInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserExtendedInfo.m; sourceTree = "<group>"; };
+		10DBC809222E7A4E002E6CD8 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		10DBC80A222E7A4E002E6CD8 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		10DBC80C222E85E1002E6CD8 /* GroupWallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupWallViewController.h; sourceTree = "<group>"; };
+		10DBC80D222E85E1002E6CD8 /* GroupWallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupWallViewController.m; sourceTree = "<group>"; };
+		10DBC80F222E8DC0002E6CD8 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		10DBC810222E8DC0002E6CD8 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		10DBC813222F197D002E6CD8 /* PostComments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostComments.h; sourceTree = "<group>"; };
+		10DBC814222F197D002E6CD8 /* PostComments.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostComments.m; sourceTree = "<group>"; };
+		10DBC816222F19CA002E6CD8 /* PostCommentsWallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCommentsWallViewController.h; sourceTree = "<group>"; };
+		10DBC817222F19CA002E6CD8 /* PostCommentsWallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCommentsWallViewController.m; sourceTree = "<group>"; };
+		10DBC81D22304A0B002E6CD8 /* ShortProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShortProfile.h; sourceTree = "<group>"; };
+		10DBC81E22304A0B002E6CD8 /* ShortProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShortProfile.m; sourceTree = "<group>"; };
+		10DBC82022304DBD002E6CD8 /* WallData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WallData.h; sourceTree = "<group>"; };
+		10DBC82122304DBD002E6CD8 /* WallData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WallData.m; sourceTree = "<group>"; };
 		66208C2C96F699672A472208 /* Pods-DZ-45.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZ-45.release.xcconfig"; path = "Target Support Files/Pods-DZ-45/Pods-DZ-45.release.xcconfig"; sourceTree = "<group>"; };
 		7FB165CE5F27492B23083751 /* Pods-DZ-45.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZ-45.debug.xcconfig"; path = "Target Support Files/Pods-DZ-45/Pods-DZ-45.debug.xcconfig"; sourceTree = "<group>"; };
 		80BCC833D697E8DEE2CA0649 /* libPods-DZ-45.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DZ-45.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +114,11 @@
 				10CA89A82221A8850020C4C5 /* UserProfileViewController.m */,
 				10CA89AB2222BF3C0020C4C5 /* LoginViewController.h */,
 				10CA89AC2222BF3C0020C4C5 /* LoginViewController.m */,
+				10DBC80C222E85E1002E6CD8 /* GroupWallViewController.h */,
+				10DBC80D222E85E1002E6CD8 /* GroupWallViewController.m */,
+				10DBC816222F19CA002E6CD8 /* PostCommentsWallViewController.h */,
+				10DBC817222F19CA002E6CD8 /* PostCommentsWallViewController.m */,
+				10DBC812222E8DCD002E6CD8 /* Cells */,
 				10CA89B4222327FB0020C4C5 /* Model */,
 				10CA899122216C4F0020C4C5 /* Main.storyboard */,
 				10CA899422216C500020C4C5 /* Assets.xcassets */,
@@ -109,11 +135,28 @@
 				10CA89B1222327E50020C4C5 /* UserExtendedInfo.h */,
 				10CA89B2222327E50020C4C5 /* UserExtendedInfo.m */,
 				10CA89AE2222C99F0020C4C5 /* AccessToken.h */,
+				10DBC81D22304A0B002E6CD8 /* ShortProfile.h */,
+				10DBC81E22304A0B002E6CD8 /* ShortProfile.m */,
 				10CA89AF2222C99F0020C4C5 /* AccessToken.m */,
 				10CA89A422219A8F0020C4C5 /* User.h */,
 				10CA89A522219A8F0020C4C5 /* User.m */,
+				10DBC809222E7A4E002E6CD8 /* Post.h */,
+				10DBC80A222E7A4E002E6CD8 /* Post.m */,
+				10DBC813222F197D002E6CD8 /* PostComments.h */,
+				10DBC814222F197D002E6CD8 /* PostComments.m */,
+				10DBC82022304DBD002E6CD8 /* WallData.h */,
+				10DBC82122304DBD002E6CD8 /* WallData.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		10DBC812222E8DCD002E6CD8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				10DBC80F222E8DC0002E6CD8 /* PostCell.h */,
+				10DBC810222E8DC0002E6CD8 /* PostCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		3DFCEAA364B7112AC32CD974 /* Pods */ = {
@@ -231,13 +274,20 @@
 			files = (
 				10CA89A622219A8F0020C4C5 /* User.m in Sources */,
 				10CA89A32221715E0020C4C5 /* NetworkManager.m in Sources */,
+				10DBC81F22304A0B002E6CD8 /* ShortProfile.m in Sources */,
 				10CA899022216C4F0020C4C5 /* ViewController.m in Sources */,
 				10CA89B02222C99F0020C4C5 /* AccessToken.m in Sources */,
+				10DBC815222F197D002E6CD8 /* PostComments.m in Sources */,
 				10CA89B3222327E50020C4C5 /* UserExtendedInfo.m in Sources */,
+				10DBC80B222E7A4E002E6CD8 /* Post.m in Sources */,
 				10CA89A92221A8850020C4C5 /* UserProfileViewController.m in Sources */,
 				10CA89AD2222BF3C0020C4C5 /* LoginViewController.m in Sources */,
 				10CA899B22216C500020C4C5 /* main.m in Sources */,
+				10DBC818222F19CA002E6CD8 /* PostCommentsWallViewController.m in Sources */,
 				10CA898D22216C4F0020C4C5 /* AppDelegate.m in Sources */,
+				10DBC80E222E85E1002E6CD8 /* GroupWallViewController.m in Sources */,
+				10DBC811222E8DC0002E6CD8 /* PostCell.m in Sources */,
+				10DBC82222304DBD002E6CD8 /* WallData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

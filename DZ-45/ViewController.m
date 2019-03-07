@@ -10,6 +10,7 @@
 #import "NetworkManager.h"
 #import "UIKit+AFNetworking.h"
 #import "UserProfileViewController.h"
+#import "Post.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -31,8 +32,8 @@ static NSInteger friendsInRequest = 15;
     
     CGRect frame = self.view.frame;
     
-    UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStyleGrouped];
-    tableView.backgroundColor = [UIColor redColor];
+    UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    tableView.backgroundColor = [UIColor whiteColor];
     
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -108,7 +109,8 @@ static NSInteger friendsInRequest = 15;
         
         [self getFriendsFromServer];
         
-    }else{
+    }
+    else{
         UserProfileViewController* vc = [[UserProfileViewController alloc] init];
         User* currentUser =[self.friendsArray objectAtIndex:indexPath.row];
         vc.userId = currentUser.userID;

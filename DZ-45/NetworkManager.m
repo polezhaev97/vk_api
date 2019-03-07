@@ -129,4 +129,134 @@
                               }];
     
 }
+
+-(void) getGroupWall:(NSString*) groupID
+          withOffset:(NSInteger) offset
+               count:(NSInteger) count
+           onSuccess:(void(^)(WallData* data)) success
+           onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure{
+    
+    if (![groupID hasPrefix:@"-"]) {
+        groupID = [@"-" stringByAppendingString:groupID];
+    }
+    
+    NSDictionary* params =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     groupID,   @"owner_id",
+     @(count),      @"count",
+     @(offset),     @"offset",
+     self.accessToken.token, @"access_token",
+     
+    @"1",@"extended",
+     @"crop_photo",@"fields",
+     
+     @"all",        @"filter",
+     @"5.92", @"version",
+     nil];
+    
+    [self.requestOperationManager GET:@"wall.get"
+                           parameters:params
+                             progress:^(NSProgress * _Nonnull downloadProgress) {
+                                 //
+                             }
+                              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                  
+                                  NSDictionary* data = [responseObject objectForKey:@"response"];
+                                     NSLog(@"JSON %@ ", data);
+                                  
+                                  WallData* wallData = [[WallData alloc] init];
+                                  
+                                  NSArray* wall = [data objectForKey:@"wall"];
+                                  NSArray* profiles = [data objectForKey:@"profiles"];
+
+                                  if ([wall count] > 1) {
+                                      wall = [wall subarrayWithRange:NSMakeRange(1, (int)[wall count] - 1)];
+                                  } else {
+                                      wall = nil;
+                                  }
+
+                                  NSMutableArray* postsArray = [[NSMutableArray alloc] init];
+                                  
+                                  for (NSDictionary* dictionary in wall) {
+                                      Post* posts = [[Post alloc] initWithDictionary:dictionary];
+                                      [postsArray addObject:posts];
+                                  }
+                                  
+                                  wallData.posts = postsArray;
+                                  
+                                  
+                                  
+                                  NSMutableDictionary* profilesDict = [[NSMutableDictionary alloc] init];
+
+                                  for (NSDictionary* dictionary in profiles) {
+                                      ShortProfile* profile = [[ShortProfile alloc] initWithDictionary:dictionary];
+                                      [profilesDict setObject:profile forKey:profile.userID];
+                                  }
+                                   wallData.profiles = profilesDict;
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  success(wallData);
+                                  
+                              }
+                              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                  
+                              }];
+
+    
+}
+
+
+-(void) getCommentsWall:(NSString*) groupID
+          withOffset:(NSNumber*) postID
+           onSuccess:(void(^)(NSArray* posts)) success
+           onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure{
+    
+    if (![groupID hasPrefix:@"-"]) {
+        groupID = [@"-" stringByAppendingString:groupID];
+    }
+    
+    NSDictionary* params =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     groupID,   @"owner_id",
+     postID,        @"post_id",
+     self.accessToken.token, @"access_token",
+     @"5.92", @"version",
+     nil];
+    
+    [self.requestOperationManager GET:@"wall.getComments"
+                           parameters:params
+                             progress:^(NSProgress * _Nonnull downloadProgress) {
+                                 //
+                             }
+                              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                    NSLog(@"JSON %@ ", responseObject);
+                                  NSArray* jsonPost = [responseObject objectForKey:@"response"];
+                                  
+                                  if ([jsonPost count] > 1) {
+                                      jsonPost = [jsonPost subarrayWithRange:NSMakeRange(1, (int)[jsonPost count] - 1)];
+                                  } else {
+                                      jsonPost = nil;
+                                  }
+                                  
+                                  
+                                  NSMutableArray* usersArray = [[NSMutableArray alloc] init];
+                                  
+                                  for (NSDictionary* dictionary in jsonPost) {
+                                      PostComments* posts = [[PostComments alloc] initWithDictionary:dictionary];
+                                      [usersArray addObject:posts];
+                                  }
+                                
+                                  success(usersArray);
+                                  
+                              }
+                              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                  
+                              }];
+    
+    
+}
+
 @end
