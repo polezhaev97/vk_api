@@ -22,9 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedInstance;
 
-- (void) getFriendsWithOffset:(NSInteger) offset
-                        count:(NSInteger) count
-                    onSuccess:(void(^)(NSArray* friends)) success
+- (void) getAllFriendsOnSuccess:(void(^)(NSArray* friends)) success
                     onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
 - (void) getUserInfo:(NSString*) userId
@@ -43,6 +41,12 @@ NS_ASSUME_NONNULL_BEGIN
              withOffset:(NSNumber*) postID
               onSuccess:(void(^)(NSArray* posts)) success
               onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
+
+-(void) getSearchWallGroupID:(NSString*) groupID
+                   withQuery:(NSString*) querySearch
+                   onSuccess:(void(^)(NSArray* posts)) success
+                   onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
+    
 
 @end
 

@@ -20,8 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    //ViewController* controller =[[ViewController alloc] init];
-    GroupWallViewController* controller = [[GroupWallViewController alloc] init];
+    ViewController* controller =[[ViewController alloc] init];
+    //GroupWallViewController* controller = [[GroupWallViewController alloc] init];
     
     UINavigationController* navController =[[UINavigationController alloc] initWithRootViewController:controller];
     self.window.rootViewController = navController;

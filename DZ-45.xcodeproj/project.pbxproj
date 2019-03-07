@@ -104,8 +104,7 @@
 		10CA898A22216C4F0020C4C5 /* DZ-45 */ = {
 			isa = PBXGroup;
 			children = (
-				10CA89A12221715E0020C4C5 /* NetworkManager.h */,
-				10CA89A22221715E0020C4C5 /* NetworkManager.m */,
+				10DBC8272231A45C002E6CD8 /* Network */,
 				10CA898B22216C4F0020C4C5 /* AppDelegate.h */,
 				10CA898C22216C4F0020C4C5 /* AppDelegate.m */,
 				10CA898E22216C4F0020C4C5 /* ViewController.h */,
@@ -135,17 +134,12 @@
 				10CA89B1222327E50020C4C5 /* UserExtendedInfo.h */,
 				10CA89B2222327E50020C4C5 /* UserExtendedInfo.m */,
 				10CA89AE2222C99F0020C4C5 /* AccessToken.h */,
+				10DBC8262231A3EA002E6CD8 /* Wall */,
 				10DBC81D22304A0B002E6CD8 /* ShortProfile.h */,
 				10DBC81E22304A0B002E6CD8 /* ShortProfile.m */,
 				10CA89AF2222C99F0020C4C5 /* AccessToken.m */,
 				10CA89A422219A8F0020C4C5 /* User.h */,
 				10CA89A522219A8F0020C4C5 /* User.m */,
-				10DBC809222E7A4E002E6CD8 /* Post.h */,
-				10DBC80A222E7A4E002E6CD8 /* Post.m */,
-				10DBC813222F197D002E6CD8 /* PostComments.h */,
-				10DBC814222F197D002E6CD8 /* PostComments.m */,
-				10DBC82022304DBD002E6CD8 /* WallData.h */,
-				10DBC82122304DBD002E6CD8 /* WallData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,6 +151,28 @@
 				10DBC810222E8DC0002E6CD8 /* PostCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		10DBC8262231A3EA002E6CD8 /* Wall */ = {
+			isa = PBXGroup;
+			children = (
+				10DBC809222E7A4E002E6CD8 /* Post.h */,
+				10DBC80A222E7A4E002E6CD8 /* Post.m */,
+				10DBC813222F197D002E6CD8 /* PostComments.h */,
+				10DBC814222F197D002E6CD8 /* PostComments.m */,
+				10DBC82022304DBD002E6CD8 /* WallData.h */,
+				10DBC82122304DBD002E6CD8 /* WallData.m */,
+			);
+			path = Wall;
+			sourceTree = "<group>";
+		};
+		10DBC8272231A45C002E6CD8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				10CA89A12221715E0020C4C5 /* NetworkManager.h */,
+				10CA89A22221715E0020C4C5 /* NetworkManager.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		3DFCEAA364B7112AC32CD974 /* Pods */ = {

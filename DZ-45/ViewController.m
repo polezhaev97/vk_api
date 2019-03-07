@@ -12,25 +12,30 @@
 #import "UserProfileViewController.h"
 #import "Post.h"
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate>
 
 @property (strong, nonatomic) NSMutableArray* friendsArray;
+@property (strong, nonatomic) NSMutableArray* searchArray;
 @property (weak, nonatomic) UITableView* tableView;
 @property (assign, nonatomic) BOOL alreadyLoaded;
+@property (strong, nonatomic)  UISearchBar* searchBar;
 
 @end
 
 @implementation ViewController
 
-static NSInteger friendsInRequest = 15;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.friendsArray = [[NSMutableArray alloc] init];
- 
+  self.searchArray = [[NSMutableArray alloc] init];
     
     CGRect frame = self.view.frame;
+    
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), 44)];
+    self.searchBar.delegate = self;
+    self.navigationItem.titleView = self.searchBar;
     
     UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
@@ -64,11 +69,16 @@ static NSInteger friendsInRequest = 15;
 -(void) getFriendsFromServer {
     
     [[NetworkManager sharedInstance]
-     getFriendsWithOffset:[self.friendsArray count]
-     count:friendsInRequest
-     onSuccess:^(NSArray * _Nonnull friends) {
+     getAllFriendsOnSuccess:^(NSArray * _Nonnull friends) {
+         
+//         NSSortDescriptor *sortDescriptor;
+//         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
+//                                                      ascending:YES];
+//         NSArray *sortedArray = [friends sortedArrayUsingDescriptors:@[sortDescriptor]];
          
          [self.friendsArray addObjectsFromArray:friends];
+         [self.searchArray addObjectsFromArray:friends];
+         
          [self.tableView reloadData];
          
      }
@@ -82,21 +92,17 @@ static NSInteger friendsInRequest = 15;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return [self.friendsArray count]+1;
+    return [self.searchArray count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-     if (indexPath.row == [self.friendsArray count] ){
-         cell.textLabel.text = @"load more";
-     }else{
-         User* currentUser =[self.friendsArray objectAtIndex:indexPath.row];
+         User* currentUser =[self.searchArray objectAtIndex:indexPath.row];
          
          cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", currentUser.name, currentUser.surname];
          [cell.imageView setImageWithURL:currentUser.imageURL];
-     }
     
     return cell;
 }
@@ -105,18 +111,46 @@ static NSInteger friendsInRequest = 15;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == [self.friendsArray count]){
-        
-        [self getFriendsFromServer];
-        
-    }
-    else{
+    
         UserProfileViewController* vc = [[UserProfileViewController alloc] init];
-        User* currentUser =[self.friendsArray objectAtIndex:indexPath.row];
+        User* currentUser =[self.searchArray objectAtIndex:indexPath.row];
         vc.userId = currentUser.userID;
         [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - UISearshBar
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+-(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    [searchBar setShowsCancelButton:NO animated:YES];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if ([searchText isEqualToString: @""]) {
+        self.searchArray = self.friendsArray;
+    }
+    else {
+        NSPredicate *surnamePredicate =
+        [NSPredicate predicateWithFormat:@"SELF.surname beginswith[c] %@",searchText];
+        
+        NSPredicate *namePredicate =
+        [NSPredicate predicateWithFormat:@"SELF.name beginswith[c] %@",searchText];
+        
+        NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:@[namePredicate, surnamePredicate]];
+        
+        NSArray* filtered = [self.friendsArray filteredArrayUsingPredicate:predicate];
+        self.searchArray = [[NSMutableArray alloc] initWithArray: filtered ];
     }
     
+    NSLog(@"yes %@",  searchBar.text);
+    
+    [self.tableView reloadData];
 }
 
 @end

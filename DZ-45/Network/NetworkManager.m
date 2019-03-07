@@ -53,17 +53,13 @@
                        completion:nil];
 }
 
-- (void) getFriendsWithOffset:(NSInteger) offset
-                        count:(NSInteger) count
-                    onSuccess:(void(^)(NSArray* friends)) success
+- (void) getAllFriendsOnSuccess:(void(^)(NSArray* friends)) success
                     onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure{
     
     NSDictionary* params =
     [NSDictionary dictionaryWithObjectsAndKeys:
      @"92246877",   @"user_id",
      @"name",       @"order",
-     @(count),      @"count",
-     @(offset),     @"offset",
      @"photo_50",   @"fields",
      self.accessToken.token, @"access_token",
      @"nom",        @"name_case",
@@ -249,6 +245,56 @@
                                       [usersArray addObject:posts];
                                   }
                                 
+                                  success(usersArray);
+                                  
+                              }
+                              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                  
+                              }];
+    
+    
+}
+
+-(void) getSearchWallGroupID:(NSString*) groupID
+             withQuery:(NSString*) querySearch
+              onSuccess:(void(^)(NSArray* posts)) success
+              onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure{
+    
+    if (![groupID hasPrefix:@"-"]) {
+        groupID = [@"-" stringByAppendingString:groupID];
+    }
+    
+    NSDictionary* params =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     groupID,   @"owner_id",
+     querySearch,        @"query",
+     self.accessToken.token, @"access_token",
+     @"5.92", @"version",
+     nil];
+    
+    [self.requestOperationManager GET:@"wall.search"
+                           parameters:params
+                             progress:^(NSProgress * _Nonnull downloadProgress) {
+                                 //
+                             }
+                              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                  NSLog(@"JSON %@ ", responseObject);
+                                  NSArray* jsonPost = [responseObject objectForKey:@"response"];
+                                  
+                                  if ([jsonPost count] > 1) {
+                                      jsonPost = [jsonPost subarrayWithRange:NSMakeRange(1, (int)[jsonPost count] - 1)];
+                                  } else {
+                                      jsonPost = nil;
+                                  }
+                                  
+                                  
+                                  NSMutableArray* usersArray = [[NSMutableArray alloc] init];
+                                  
+                                  for (NSDictionary* dictionary in jsonPost) {
+                                      PostComments* posts = [[PostComments alloc] initWithDictionary:dictionary];
+                                      [usersArray addObject:posts];
+                                  }
+                                  
                                   success(usersArray);
                                   
                               }

@@ -35,31 +35,10 @@ static NSInteger postInRequest = 20;
     
     CGRect frame = self.view.frame;
     
-    self.searchBar = [[UISearchBar alloc] initWithFrame:frame];
-    [self.searchBar sizeToFit];
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), 44)];
     self.searchBar.delegate = self;
-    [self.navigationController.navigationBar addSubview:self.searchBar];
+    self.navigationItem.titleView = self.searchBar;
 
-
-    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:self];
-    self.navigationItem.titleView = searchController.searchBar;
-    self.definesPresentationContext = YES;
-    
-
-    
-//     self.searchBar = [[UISearchBar alloc] initWithFrame:frame];
-//    [self.searchBar sizeToFit];
-//
-//    UISearchDisplayController *searchDisplayController= [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar
-//                                                                                          contentsController:self];
-//    self.searchDisplayController.searchResultsDelegate = self;
-//    self.searchDisplayController.searchResultsDataSource = self;
-//    self.searchBar.delegate = self;
-//    self.navigationItem.titleView = searchDisplayController.searchBar;
-//    [self.navigationController.navigationBar addSubview:self.searchBar];
-
-    
-    
     UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
     tableView.rowHeight = UITableViewAutomaticDimension;
@@ -89,6 +68,7 @@ static NSInteger postInRequest = 20;
             NSLog(@"isOk %d ", isSuccess);
             if (isSuccess) {
                 [self getPostFromServer];
+                [self getSearchWall];
             }
         }];
     }
@@ -122,6 +102,17 @@ static NSInteger postInRequest = 20;
     
 }
 
+-(void) getSearchWall {
+    
+    [[NetworkManager sharedInstance] getSearchWallGroupID:@"58860049"
+                                                withQuery:@"Пробовал перезапускать Xcode"
+                                                 onSuccess:^(NSArray * _Nonnull posts) {
+                                                     
+                                                 }
+                                                 onFailure:^(NSError * _Nonnull error, NSInteger statusCode) {
+                                                     
+                                                 }];
+     }
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -174,11 +165,6 @@ static NSInteger postInRequest = 20;
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     
     [searchBar setShowsCancelButton:YES animated:YES];
-}
-
--(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-    [searchBar setShowsCancelButton:NO animated:YES];
 }
 
 -(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
