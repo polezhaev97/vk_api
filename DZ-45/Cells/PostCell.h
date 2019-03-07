@@ -29,10 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong,nonatomic) UIButton* likeButton;
 @property(strong,nonatomic) UIButton* repostButton;
 
-- (instancetype)initWith:(NSDictionary*) dictionary;
-
-
-
 @end
 
 NS_ASSUME_NONNULL_END

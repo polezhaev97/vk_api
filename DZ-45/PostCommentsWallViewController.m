@@ -23,7 +23,7 @@
 
 @implementation PostCommentsWallViewController
 
-static NSInteger postInRequest = 20;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

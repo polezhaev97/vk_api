@@ -18,12 +18,7 @@
     return self;
 }
 
-
-
 -(void) initView{
-    
-    
-    
     
     self.postTextLabel =[[UILabel alloc] init];
     self.postTextLabel.translatesAutoresizingMaskIntoConstraints = NO;
