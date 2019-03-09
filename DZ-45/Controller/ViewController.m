@@ -11,6 +11,7 @@
 #import "UIKit+AFNetworking.h"
 #import "UserProfileViewController.h"
 #import "Post.h"
+#import "NavigationController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate>
 
@@ -27,6 +28,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"Friens";
+    self.view.backgroundColor = [UIColor orangeColor];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:(NavigationController *)self.navigationController
+                                                                            action:@selector(showMenu)];
     
     self.friendsArray = [[NSMutableArray alloc] init];
   self.searchArray = [[NSMutableArray alloc] init];
@@ -55,13 +63,8 @@
     
     if (!self.alreadyLoaded) {
         self.alreadyLoaded = true;
-        [[NetworkManager sharedInstance] authorizeUser:^(BOOL isSuccess) {
-            NSLog(@"isOk %d ", isSuccess);
-            if (isSuccess) {
                    [self getFriendsFromServer];
             }
-        }];
-    }
 }
 
 #pragma mark - API
@@ -116,6 +119,11 @@
         User* currentUser =[self.searchArray objectAtIndex:indexPath.row];
         vc.userId = currentUser.userID;
         [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 63;
 }
 
 #pragma mark - UISearshBar

@@ -15,6 +15,7 @@
 #import "Post.h"
 #import "User.h"
 #import "AccessToken.h"
+#import "NavigationController.h"
 
 @interface GroupWallViewController ()<UITableViewDelegate, UITableViewDataSource, PostCellDelegate, UISearchBarDelegate>
 
@@ -32,6 +33,13 @@ static NSInteger postInRequest = 20;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"Group";
+    self.view.backgroundColor = [UIColor orangeColor];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:(NavigationController *)self.navigationController
+                                                                            action:@selector(showMenu)];
     
     CGRect frame = self.view.frame;
     
@@ -64,13 +72,9 @@ static NSInteger postInRequest = 20;
     
     if (!self.alreadyLoaded) {
         self.alreadyLoaded = YES;
-        [[NetworkManager sharedInstance] authorizeUser:^(BOOL isSuccess) {
-            NSLog(@"isOk %d ", isSuccess);
-            if (isSuccess) {
+
                 [self getPostFromServer];
                 [self getSearchWall];
-            }
-        }];
     }
 }
 
@@ -105,7 +109,7 @@ static NSInteger postInRequest = 20;
 -(void) getSearchWall {
     
     [[NetworkManager sharedInstance] getSearchWallGroupID:@"58860049"
-                                                withQuery:@"Пробовал перезапускать Xcode"
+                                                withQuery:@""
                                                  onSuccess:^(NSArray * _Nonnull posts) {
                                                      
                                                  }

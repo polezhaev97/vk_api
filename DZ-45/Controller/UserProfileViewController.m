@@ -61,8 +61,10 @@ self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+imageView.f
                                            
                                            self.userInfo = userInfo;
                                             self.userDataArray = [NSMutableArray arrayWithArray:@[@(nameAndSurname), @(sex), @(city), @(education), @(online)]];
+                                           if (self.userInfo.bigPhoto != nil) {
+                                               [imageView setImageWithURL:self.userInfo.bigPhoto];
+                                           }
                                            
-                                            [imageView setImageWithURL:self.userInfo.bigPhoto];
                                            [self.tableView reloadData];
         
                                            

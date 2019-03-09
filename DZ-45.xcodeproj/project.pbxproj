@@ -8,24 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		10CA898D22216C4F0020C4C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA898C22216C4F0020C4C5 /* AppDelegate.m */; };
-		10CA899022216C4F0020C4C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA898F22216C4F0020C4C5 /* ViewController.m */; };
 		10CA899322216C4F0020C4C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10CA899122216C4F0020C4C5 /* Main.storyboard */; };
 		10CA899522216C500020C4C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10CA899422216C500020C4C5 /* Assets.xcassets */; };
 		10CA899822216C500020C4C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10CA899622216C500020C4C5 /* LaunchScreen.storyboard */; };
 		10CA899B22216C500020C4C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA899A22216C500020C4C5 /* main.m */; };
 		10CA89A32221715E0020C4C5 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89A22221715E0020C4C5 /* NetworkManager.m */; };
 		10CA89A622219A8F0020C4C5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89A522219A8F0020C4C5 /* User.m */; };
-		10CA89A92221A8850020C4C5 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89A82221A8850020C4C5 /* UserProfileViewController.m */; };
-		10CA89AD2222BF3C0020C4C5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89AC2222BF3C0020C4C5 /* LoginViewController.m */; };
 		10CA89B02222C99F0020C4C5 /* AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89AF2222C99F0020C4C5 /* AccessToken.m */; };
 		10CA89B3222327E50020C4C5 /* UserExtendedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CA89B2222327E50020C4C5 /* UserExtendedInfo.m */; };
 		10DBC80B222E7A4E002E6CD8 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC80A222E7A4E002E6CD8 /* Post.m */; };
-		10DBC80E222E85E1002E6CD8 /* GroupWallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC80D222E85E1002E6CD8 /* GroupWallViewController.m */; };
 		10DBC811222E8DC0002E6CD8 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC810222E8DC0002E6CD8 /* PostCell.m */; };
 		10DBC815222F197D002E6CD8 /* PostComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC814222F197D002E6CD8 /* PostComments.m */; };
-		10DBC818222F19CA002E6CD8 /* PostCommentsWallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC817222F19CA002E6CD8 /* PostCommentsWallViewController.m */; };
 		10DBC81F22304A0B002E6CD8 /* ShortProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC81E22304A0B002E6CD8 /* ShortProfile.m */; };
 		10DBC82222304DBD002E6CD8 /* WallData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC82122304DBD002E6CD8 /* WallData.m */; };
+		10DBC8502233F4D3002E6CD8 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC83E2233F4D3002E6CD8 /* NavigationController.m */; };
+		10DBC8512233F4D3002E6CD8 /* PostCommentsWallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC83F2233F4D3002E6CD8 /* PostCommentsWallViewController.m */; };
+		10DBC8522233F4D3002E6CD8 /* MenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC8402233F4D3002E6CD8 /* MenuNavigationController.m */; };
+		10DBC8532233F4D3002E6CD8 /* GroupWallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC8412233F4D3002E6CD8 /* GroupWallViewController.m */; };
+		10DBC8542233F4D3002E6CD8 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC8422233F4D3002E6CD8 /* SecondViewController.m */; };
+		10DBC8552233F4D3002E6CD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC8452233F4D3002E6CD8 /* ViewController.m */; };
+		10DBC8562233F4D3002E6CD8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC8482233F4D3002E6CD8 /* HomeViewController.m */; };
+		10DBC8572233F4D3002E6CD8 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC84D2233F4D3002E6CD8 /* UserProfileViewController.m */; };
+		10DBC8582233F4D3002E6CD8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC84E2233F4D3002E6CD8 /* LoginViewController.m */; };
+		10DBC85B2233F500002E6CD8 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DBC85A2233F500002E6CD8 /* Section.m */; };
 		FD576569475BCCA4AFCFEA0C /* libPods-DZ-45.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BCC833D697E8DEE2CA0649 /* libPods-DZ-45.a */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +38,6 @@
 		10CA898822216C4F0020C4C5 /* DZ-45.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DZ-45.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10CA898B22216C4F0020C4C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		10CA898C22216C4F0020C4C5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		10CA898E22216C4F0020C4C5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		10CA898F22216C4F0020C4C5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		10CA899222216C4F0020C4C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10CA899422216C500020C4C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10CA899722216C500020C4C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,28 +47,40 @@
 		10CA89A22221715E0020C4C5 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		10CA89A422219A8F0020C4C5 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		10CA89A522219A8F0020C4C5 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		10CA89A72221A8850020C4C5 /* UserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
-		10CA89A82221A8850020C4C5 /* UserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
-		10CA89AB2222BF3C0020C4C5 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		10CA89AC2222BF3C0020C4C5 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		10CA89AE2222C99F0020C4C5 /* AccessToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessToken.h; sourceTree = "<group>"; };
 		10CA89AF2222C99F0020C4C5 /* AccessToken.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessToken.m; sourceTree = "<group>"; };
 		10CA89B1222327E50020C4C5 /* UserExtendedInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserExtendedInfo.h; sourceTree = "<group>"; };
 		10CA89B2222327E50020C4C5 /* UserExtendedInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserExtendedInfo.m; sourceTree = "<group>"; };
 		10DBC809222E7A4E002E6CD8 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		10DBC80A222E7A4E002E6CD8 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
-		10DBC80C222E85E1002E6CD8 /* GroupWallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupWallViewController.h; sourceTree = "<group>"; };
-		10DBC80D222E85E1002E6CD8 /* GroupWallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupWallViewController.m; sourceTree = "<group>"; };
 		10DBC80F222E8DC0002E6CD8 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
 		10DBC810222E8DC0002E6CD8 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		10DBC813222F197D002E6CD8 /* PostComments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostComments.h; sourceTree = "<group>"; };
 		10DBC814222F197D002E6CD8 /* PostComments.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostComments.m; sourceTree = "<group>"; };
-		10DBC816222F19CA002E6CD8 /* PostCommentsWallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCommentsWallViewController.h; sourceTree = "<group>"; };
-		10DBC817222F19CA002E6CD8 /* PostCommentsWallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCommentsWallViewController.m; sourceTree = "<group>"; };
 		10DBC81D22304A0B002E6CD8 /* ShortProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShortProfile.h; sourceTree = "<group>"; };
 		10DBC81E22304A0B002E6CD8 /* ShortProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShortProfile.m; sourceTree = "<group>"; };
 		10DBC82022304DBD002E6CD8 /* WallData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WallData.h; sourceTree = "<group>"; };
 		10DBC82122304DBD002E6CD8 /* WallData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WallData.m; sourceTree = "<group>"; };
+		10DBC83E2233F4D3002E6CD8 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		10DBC83F2233F4D3002E6CD8 /* PostCommentsWallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCommentsWallViewController.m; sourceTree = "<group>"; };
+		10DBC8402233F4D3002E6CD8 /* MenuNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuNavigationController.m; sourceTree = "<group>"; };
+		10DBC8412233F4D3002E6CD8 /* GroupWallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupWallViewController.m; sourceTree = "<group>"; };
+		10DBC8422233F4D3002E6CD8 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		10DBC8432233F4D3002E6CD8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		10DBC8442233F4D3002E6CD8 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		10DBC8452233F4D3002E6CD8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		10DBC8462233F4D3002E6CD8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		10DBC8472233F4D3002E6CD8 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		10DBC8482233F4D3002E6CD8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		10DBC8492233F4D3002E6CD8 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		10DBC84A2233F4D3002E6CD8 /* MenuNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuNavigationController.h; sourceTree = "<group>"; };
+		10DBC84B2233F4D3002E6CD8 /* GroupWallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupWallViewController.h; sourceTree = "<group>"; };
+		10DBC84C2233F4D3002E6CD8 /* PostCommentsWallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCommentsWallViewController.h; sourceTree = "<group>"; };
+		10DBC84D2233F4D3002E6CD8 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		10DBC84E2233F4D3002E6CD8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		10DBC84F2233F4D3002E6CD8 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		10DBC8592233F500002E6CD8 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		10DBC85A2233F500002E6CD8 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
 		66208C2C96F699672A472208 /* Pods-DZ-45.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZ-45.release.xcconfig"; path = "Target Support Files/Pods-DZ-45/Pods-DZ-45.release.xcconfig"; sourceTree = "<group>"; };
 		7FB165CE5F27492B23083751 /* Pods-DZ-45.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZ-45.debug.xcconfig"; path = "Target Support Files/Pods-DZ-45/Pods-DZ-45.debug.xcconfig"; sourceTree = "<group>"; };
 		80BCC833D697E8DEE2CA0649 /* libPods-DZ-45.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DZ-45.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,26 +119,19 @@
 		10CA898A22216C4F0020C4C5 /* DZ-45 */ = {
 			isa = PBXGroup;
 			children = (
-				10DBC8272231A45C002E6CD8 /* Network */,
 				10CA898B22216C4F0020C4C5 /* AppDelegate.h */,
 				10CA898C22216C4F0020C4C5 /* AppDelegate.m */,
-				10CA898E22216C4F0020C4C5 /* ViewController.h */,
-				10CA898F22216C4F0020C4C5 /* ViewController.m */,
-				10CA89A72221A8850020C4C5 /* UserProfileViewController.h */,
-				10CA89A82221A8850020C4C5 /* UserProfileViewController.m */,
-				10CA89AB2222BF3C0020C4C5 /* LoginViewController.h */,
-				10CA89AC2222BF3C0020C4C5 /* LoginViewController.m */,
-				10DBC80C222E85E1002E6CD8 /* GroupWallViewController.h */,
-				10DBC80D222E85E1002E6CD8 /* GroupWallViewController.m */,
-				10DBC816222F19CA002E6CD8 /* PostCommentsWallViewController.h */,
-				10DBC817222F19CA002E6CD8 /* PostCommentsWallViewController.m */,
 				10DBC812222E8DCD002E6CD8 /* Cells */,
-				10CA89B4222327FB0020C4C5 /* Model */,
-				10CA899122216C4F0020C4C5 /* Main.storyboard */,
-				10CA899422216C500020C4C5 /* Assets.xcassets */,
-				10CA899622216C500020C4C5 /* LaunchScreen.storyboard */,
+				10DBC83D2233F4D3002E6CD8 /* Controller */,
 				10CA899922216C500020C4C5 /* Info.plist */,
+				10CA899622216C500020C4C5 /* LaunchScreen.storyboard */,
 				10CA899A22216C500020C4C5 /* main.m */,
+				10CA899422216C500020C4C5 /* Assets.xcassets */,
+				10CA899122216C4F0020C4C5 /* Main.storyboard */,
+				10CA89B4222327FB0020C4C5 /* Model */,
+				10DBC8272231A45C002E6CD8 /* Network */,
+				10DBC8592233F500002E6CD8 /* Section.h */,
+				10DBC85A2233F500002E6CD8 /* Section.m */,
 			);
 			path = "DZ-45";
 			sourceTree = "<group>";
@@ -174,6 +182,32 @@
 			);
 			path = Network;
 			sourceTree = "<group>";
+		};
+		10DBC83D2233F4D3002E6CD8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10DBC8492233F4D3002E6CD8 /* SecondViewController.h */,
+				10DBC8422233F4D3002E6CD8 /* SecondViewController.m */,
+				10DBC84F2233F4D3002E6CD8 /* ViewController.h */,
+				10DBC8452233F4D3002E6CD8 /* ViewController.m */,
+				10DBC8442233F4D3002E6CD8 /* UserProfileViewController.h */,
+				10DBC84D2233F4D3002E6CD8 /* UserProfileViewController.m */,
+				10DBC84B2233F4D3002E6CD8 /* GroupWallViewController.h */,
+				10DBC8412233F4D3002E6CD8 /* GroupWallViewController.m */,
+				10DBC84C2233F4D3002E6CD8 /* PostCommentsWallViewController.h */,
+				10DBC83F2233F4D3002E6CD8 /* PostCommentsWallViewController.m */,
+				10DBC8462233F4D3002E6CD8 /* LoginViewController.h */,
+				10DBC84E2233F4D3002E6CD8 /* LoginViewController.m */,
+				10DBC8472233F4D3002E6CD8 /* NavigationController.h */,
+				10DBC83E2233F4D3002E6CD8 /* NavigationController.m */,
+				10DBC8432233F4D3002E6CD8 /* HomeViewController.h */,
+				10DBC8482233F4D3002E6CD8 /* HomeViewController.m */,
+				10DBC84A2233F4D3002E6CD8 /* MenuNavigationController.h */,
+				10DBC8402233F4D3002E6CD8 /* MenuNavigationController.m */,
+			);
+			name = Controller;
+			path = "DZ-45/Controller";
+			sourceTree = SOURCE_ROOT;
 		};
 		3DFCEAA364B7112AC32CD974 /* Pods */ = {
 			isa = PBXGroup;
@@ -288,20 +322,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10DBC8552233F4D3002E6CD8 /* ViewController.m in Sources */,
 				10CA89A622219A8F0020C4C5 /* User.m in Sources */,
 				10CA89A32221715E0020C4C5 /* NetworkManager.m in Sources */,
 				10DBC81F22304A0B002E6CD8 /* ShortProfile.m in Sources */,
-				10CA899022216C4F0020C4C5 /* ViewController.m in Sources */,
+				10DBC8582233F4D3002E6CD8 /* LoginViewController.m in Sources */,
 				10CA89B02222C99F0020C4C5 /* AccessToken.m in Sources */,
+				10DBC8562233F4D3002E6CD8 /* HomeViewController.m in Sources */,
 				10DBC815222F197D002E6CD8 /* PostComments.m in Sources */,
 				10CA89B3222327E50020C4C5 /* UserExtendedInfo.m in Sources */,
+				10DBC8572233F4D3002E6CD8 /* UserProfileViewController.m in Sources */,
+				10DBC8522233F4D3002E6CD8 /* MenuNavigationController.m in Sources */,
+				10DBC85B2233F500002E6CD8 /* Section.m in Sources */,
 				10DBC80B222E7A4E002E6CD8 /* Post.m in Sources */,
-				10CA89A92221A8850020C4C5 /* UserProfileViewController.m in Sources */,
-				10CA89AD2222BF3C0020C4C5 /* LoginViewController.m in Sources */,
+				10DBC8512233F4D3002E6CD8 /* PostCommentsWallViewController.m in Sources */,
+				10DBC8532233F4D3002E6CD8 /* GroupWallViewController.m in Sources */,
 				10CA899B22216C500020C4C5 /* main.m in Sources */,
-				10DBC818222F19CA002E6CD8 /* PostCommentsWallViewController.m in Sources */,
 				10CA898D22216C4F0020C4C5 /* AppDelegate.m in Sources */,
-				10DBC80E222E85E1002E6CD8 /* GroupWallViewController.m in Sources */,
+				10DBC8542233F4D3002E6CD8 /* SecondViewController.m in Sources */,
+				10DBC8502233F4D3002E6CD8 /* NavigationController.m in Sources */,
 				10DBC811222E8DC0002E6CD8 /* PostCell.m in Sources */,
 				10DBC82222304DBD002E6CD8 /* WallData.m in Sources */,
 			);

@@ -23,7 +23,12 @@
         self.universityName = [dictionary objectForKey:@"university_name"];
         self.isOnline = [[dictionary objectForKey:@"online"] integerValue];
         NSString* stringURL = [dictionary objectForKey: @"photo_400_orig"];
-        self.bigPhoto = [[NSURL alloc] initWithString:stringURL];
+        if (stringURL != nil) {
+               self.bigPhoto = [[NSURL alloc] initWithString:stringURL];
+        }else {
+            NSLog(@"fail");
+        }
+     
     }
     return self;
 }

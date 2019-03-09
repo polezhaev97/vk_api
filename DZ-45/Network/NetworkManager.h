@@ -14,7 +14,7 @@
 #import "PostComments.h"
 #import "ShortProfile.h"
 #import "WallData.h"
-
+#import "HomeViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NetworkManager : NSObject
