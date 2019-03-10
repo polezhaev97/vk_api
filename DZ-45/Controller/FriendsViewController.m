@@ -6,14 +6,14 @@
 //  Copyright © 2019 mbp. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "FriendsViewController.h"
 #import "NetworkManager.h"
 #import "UIKit+AFNetworking.h"
 #import "UserProfileViewController.h"
 #import "Post.h"
 #import "NavigationController.h"
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate>
+@interface FriendsViewController ()<UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate>
 
 @property (strong, nonatomic) NSMutableArray* friendsArray;
 @property (strong, nonatomic) NSMutableArray* searchArray;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation ViewController
+@implementation FriendsViewController
 
 
 - (void)viewDidLoad {
@@ -31,7 +31,7 @@
     
     self.title = @"Friens";
     self.view.backgroundColor = [UIColor orangeColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"hamburger"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:(NavigationController *)self.navigationController
                                                                             action:@selector(showMenu)];

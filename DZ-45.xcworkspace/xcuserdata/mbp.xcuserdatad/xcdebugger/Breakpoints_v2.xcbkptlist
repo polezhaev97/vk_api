@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DZ-45/Controller/GroupWallViewController.m"
-            timestampString = "573830608.623675"
+            filePath = "DZ-45/Controller/MenuNavigationController.m"
+            timestampString = "573912036.878033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-getPostFromServer"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DZ-45/Controller/GroupWallViewController.m"
-            timestampString = "573830618.283462"
+            filePath = "DZ-45/Controller/MenuNavigationController.m"
+            timestampString = "573912036.878137"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-getPostFromServer"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

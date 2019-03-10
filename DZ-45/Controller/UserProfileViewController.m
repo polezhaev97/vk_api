@@ -10,6 +10,8 @@
 #import "NetworkManager.h"
 #import "UIKit+AFNetworking.h"
 
+#import "NavigationController.h"
+
 typedef enum {
     
     nameAndSurname =1,
@@ -35,6 +37,15 @@ typedef enum {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (self.navigationController.viewControllers.count == 1) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"hamburger"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:(NavigationController *)self.navigationController
+                                                                                action:@selector(showMenu)];
+    }
+    
+    
     
  
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.width)];
@@ -113,8 +124,9 @@ self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+imageView.f
     return cell;
 }
 
-
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 
 @end

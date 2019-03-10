@@ -21,7 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Home Controller";
+    self.title = @"Home";
     
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
@@ -40,7 +40,7 @@
         [[NetworkManager sharedInstance] authorizeUser:^(BOOL isSuccess) {
             NSLog(@"isOk %d ", isSuccess);
             if (isSuccess) {
-                self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+                self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"hamburger"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                                                                                          style:UIBarButtonItemStylePlain
                                                                                         target:(NavigationController *)self.navigationController
                                                                                         action:@selector(showMenu)];

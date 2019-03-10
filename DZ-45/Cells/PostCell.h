@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) UILabel* userName;
 @property(strong,nonatomic) UILabel* datePost;
 @property(strong,nonatomic) UIButton* likeButton;
-@property(strong,nonatomic) UIButton* repostButton;
+@property(strong,nonatomic) UIButton* comentsButton;
 
 @end
 

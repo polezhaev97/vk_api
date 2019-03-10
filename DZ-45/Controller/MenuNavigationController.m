@@ -10,15 +10,22 @@
 #import "UIViewController+REFrostedViewController.h"
 #import "HomeViewController.h"
 #import "SecondViewController.h"
+#import "NetworkManager.h"
+#import "UIKit+AFNetworking.h"
 
-#import "ViewController.h"
+
+#import "FriendsViewController.h"
 #import "GroupWallViewController.h"
 #import "Section.h"
+#import "UserProfileViewController.h"
 
 
-@interface MenuNavigationController ()
+@interface MenuNavigationController ()<UIImagePickerControllerDelegate>
 
 @property(strong, nonatomic) NSMutableArray* sectionsArray;
+@property(weak, nonatomic) UIImageView* profileImage;
+@property(weak, nonatomic) UILabel* profileLable;
+
 
 @end
 
@@ -27,6 +34,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NetworkManager sharedInstance] getUserInfo:@"92246877"
+                                       onSuccess:^(UserExtendedInfo * _Nonnull userInfo) {
+                                           NSString* profile = [NSString stringWithFormat:@"%@ %@",userInfo.name, userInfo.surname];
+                                           self.profileLable.text = profile;
+                                           self.profileLable.textAlignment = NSTextAlignmentCenter;
+                                           [self.profileLable sizeToFit];
+                                           [self.profileImage setImageWithURL:userInfo.bigPhoto placeholderImage:nil];
+                                           
+                                       } onFailure:^(NSError * _Nonnull error, NSInteger statusCode) {
+                                           
+                                       }];
     
     self.sectionsArray = [[NSMutableArray alloc] init];
     
@@ -39,42 +58,41 @@
     self.tableView.dataSource = self;
     self.tableView.opaque = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.bounces = NO;
     self.tableView.tableHeaderView = ({
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        imageView.image = [UIImage imageNamed:@"antoha"];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.image = [UIImage imageNamed:@"yana"];
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 50.0;
         imageView.layer.borderColor = [UIColor whiteColor].CGColor;
-        imageView.layer.borderWidth = 3.0f;
+        imageView.layer.borderWidth = 4.0f;
         imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
         imageView.layer.shouldRasterize = YES;
         imageView.clipsToBounds = YES;
         
-        UIButton* photoButton = [[UIButton alloc] initWithFrame:CGRectMake(270, 10, 50, 50)];
-        UIImage *imageButton = [UIImage imageNamed:@"photoButton"];
+        self.profileImage = imageView;
         
-//        CGRect listButtonFrame = photoButton.frame;
-//        listButtonFrame.size = imageButton.size;
-//        photoButton.frame = listButtonFrame;
+        UIButton* photoButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 10, 45, 45)];
+        UIImage *imageButton = [UIImage imageNamed:@"photoButton"];
         
         [photoButton setImage:imageButton forState:UIControlStateNormal];
         photoButton.layer.cornerRadius = 15;
-        photoButton.backgroundColor = [UIColor redColor];
+        photoButton.backgroundColor = [UIColor grayColor];
         
         [photoButton addTarget:self
                         action:@selector(takePhoto)
               forControlEvents:UIControlEventTouchUpInside];
 
 
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
-        label.text = @"antoha";
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(70, 150, 0, 24)];
         label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        label.backgroundColor = [UIColor clearColor];
+        label.backgroundColor = [UIColor redColor];
         label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
-        [label sizeToFit];
-        label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+
+        self.profileLable = label;
 
         [view addSubview:imageView];
         [view addSubview:label];
@@ -82,6 +100,10 @@
 
         view;
     });
+    
+    
+    
+    
 }
 
 - (void)takePhoto {
@@ -94,6 +116,14 @@
     [self presentViewController:picker animated:YES completion:NULL];
     
 }
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage* imageNew = [info valueForKey:UIImagePickerControllerOriginalImage];
+    self.profileImage.image = imageNew;
+    [picker dismissViewControllerAnimated:YES completion:nil];
+
+}
+
 
 #pragma mark UITableView Delegate
 
@@ -140,9 +170,13 @@
     menuRows currentType = [type intValue];
     
     if (currentType == myProfile) {
+        UserProfileViewController * profileViewController = [[UserProfileViewController alloc] init];
+        profileViewController.userId = @"92246877";
+            NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:profileViewController];
+        self.frostedViewController.contentViewController = navigationController;
         
     }else if (currentType == friends){
-        ViewController * friendsViewController = [[ViewController alloc] init];
+        FriendsViewController * friendsViewController = [[FriendsViewController alloc] init];
         NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:friendsViewController];
         self.frostedViewController.contentViewController = navigationController;
     }else if(currentType == group){

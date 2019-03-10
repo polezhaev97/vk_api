@@ -36,7 +36,7 @@ static NSInteger postInRequest = 20;
     
     self.title = @"Group";
     self.view.backgroundColor = [UIColor orangeColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"hamburger"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:(NavigationController *)self.navigationController
                                                                             action:@selector(showMenu)];

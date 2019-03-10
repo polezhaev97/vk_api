@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-#import "LoginViewController.h"
-#import "UserProfileViewController.h"
-#import "GroupWallViewController.h"
+//#import "FriendsViewController.h"
+//#import "LoginViewController.h"
+//#import "UserProfileViewController.h"
+//#import "GroupWallViewController.h"
 #import "HomeViewController.h"
 #import "MenuNavigationController.h"
 #import "NavigationController.h"

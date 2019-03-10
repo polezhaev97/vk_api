@@ -37,39 +37,37 @@
                         action:@selector(likeAction)
               forControlEvents:UIControlEventTouchUpInside];
     self.likeButton.translatesAutoresizingMaskIntoConstraints = NO;
+    UIImage *imageLikeButton = [UIImage imageNamed:@"likeButton"];
+
     
-    self.repostButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    [self.repostButton addTarget:self
+    self.comentsButton = [[UIButton alloc] init];
+    [self.comentsButton addTarget:self
                         action:@selector(repostAction)
               forControlEvents:UIControlEventTouchUpInside];
-    self.repostButton.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    
+    self.comentsButton.translatesAutoresizingMaskIntoConstraints = NO;
+    UIImage *imageComentsButton = [UIImage imageNamed:@"comment"];
+
     [self addSubview:self.postTextLabel];
     [self addSubview:self.userName];
     [self addSubview:self.datePost];
     [self addSubview:self.userAvatar];
     [self addSubview:self.likeButton];
-    [self addSubview:self.repostButton];
+    [self addSubview:self.comentsButton];
 
-    //self.postTextLabel.text = @"test post1";
     self.postTextLabel.numberOfLines=0;
     self.postTextLabel.font = [UIFont systemFontOfSize:14];
-   // self.postTextLabel.textColor = [UIColor redColor];
 
-    
-    //self.userName.text = @"Max polezhav";
-    
     self.datePost.text = @"вчера в 21:49";
     self.datePost.textColor = [UIColor darkGrayColor];
     self.datePost.font = [UIFont systemFontOfSize:15];
 
-
-   // self.userAvatar.image = [UIImage imageNamed: @"antoha" ];
     self.userAvatar.layer.masksToBounds = YES;
     self.userAvatar.layer.cornerRadius = 21 ;
     
-    self.likeButton.backgroundColor = [UIColor redColor];
+    [self.likeButton setImage:imageLikeButton forState:UIControlStateNormal];
+    
+    [self.comentsButton setImage:imageComentsButton forState:UIControlStateNormal];
+
     
     [self applyConstraints];
 }
@@ -81,16 +79,16 @@
                             @"date" : self.datePost,
                             @"name" : self.userName,
                             @"like":self.likeButton,
-                            @"repost":self.repostButton
+                            @"repost":self.comentsButton
                             };
     
     NSArray* constraints =[[NSArray alloc] initWithObjects:
                            @"H:|-[avatar(44)]-[name]-|",
                            @"H:[avatar]-[date]-|",
                            @"H:|-[text]-|",
-                           @"H:|-30-[like(20)]-25-[repost(20)]",
-                           @"V:|-[avatar(44)]-[text]-[like(20)]-10-|",
-                           @"V:[text]-[repost(20)]-10-|",
+                           @"H:|-30-[like(30)]-25-[repost(30)]",
+                           @"V:|-[avatar(44)]-[text]-[like(30)]-10-|",
+                           @"V:[text]-[repost(30)]-10-|",
                            @"V:|-[name(18)]-5-[date]-10-[text]"
                            ,nil];
     
