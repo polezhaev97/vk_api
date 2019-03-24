@@ -132,6 +132,11 @@ static NSInteger postInRequest = 20;
     Post* currentPost =[self.data.posts objectAtIndex:indexPath.row];
     ShortProfile* profile = [self.data.profiles objectForKey:currentPost.fromID];
     cell.postTextLabel.text = currentPost.text;
+    
+    cell.countCommentLabel.text = [currentPost.countComment stringValue];
+    
+    cell.countLikeLabel.text = [currentPost.countLike stringValue];
+
     cell.userName.text = [NSString stringWithFormat:@"%@ %@", profile.name, profile.surname];
     
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];

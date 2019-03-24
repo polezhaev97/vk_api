@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(weak,nonatomic) id <PostCellDelegate> delegate;
 
 @property(strong, nonatomic) UILabel* postTextLabel;
+@property(strong, nonatomic) UILabel* countLikeLabel;
+@property(strong, nonatomic) UILabel* countCommentLabel;
 @property(strong, nonatomic) UIImageView* userAvatar;
 @property(strong, nonatomic) UILabel* userName;
 @property(strong,nonatomic) UILabel* datePost;

@@ -37,14 +37,18 @@
                                                                             action:@selector(showMenu)];
     
     self.friendsArray = [[NSMutableArray alloc] init];
-  self.searchArray = [[NSMutableArray alloc] init];
+    self.searchArray = [[NSMutableArray alloc] init];
     
     CGRect frame = self.view.frame;
     
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), 44)];
     self.searchBar.delegate = self;
     self.navigationItem.titleView = self.searchBar;
-    
+    [self creaateTableView];
+}
+
+-(void)creaateTableView {
+    CGRect frame = self.view.frame;
     UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor whiteColor];
     
@@ -63,8 +67,8 @@
     
     if (!self.alreadyLoaded) {
         self.alreadyLoaded = true;
-                   [self getFriendsFromServer];
-            }
+        [self getFriendsFromServer];
+    }
 }
 
 #pragma mark - API
@@ -74,10 +78,10 @@
     [[NetworkManager sharedInstance]
      getAllFriendsOnSuccess:^(NSArray * _Nonnull friends) {
          
-//         NSSortDescriptor *sortDescriptor;
-//         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
-//                                                      ascending:YES];
-//         NSArray *sortedArray = [friends sortedArrayUsingDescriptors:@[sortDescriptor]];
+         //         NSSortDescriptor *sortDescriptor;
+         //         sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
+         //                                                      ascending:YES];
+         //         NSArray *sortedArray = [friends sortedArrayUsingDescriptors:@[sortDescriptor]];
          
          [self.friendsArray addObjectsFromArray:friends];
          [self.searchArray addObjectsFromArray:friends];
@@ -102,10 +106,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-         User* currentUser =[self.searchArray objectAtIndex:indexPath.row];
-         
-         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", currentUser.name, currentUser.surname];
-         [cell.imageView setImageWithURL:currentUser.imageURL];
+    User* currentUser =[self.searchArray objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", currentUser.name, currentUser.surname];
+    [cell.imageView setImageWithURL:currentUser.imageURL];
     
     return cell;
 }
@@ -114,11 +118,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    
-        UserProfileViewController* vc = [[UserProfileViewController alloc] init];
-        User* currentUser =[self.searchArray objectAtIndex:indexPath.row];
-        vc.userId = currentUser.userID;
-        [self.navigationController pushViewController:vc animated:YES];
+    UserProfileViewController* vc = [[UserProfileViewController alloc] init];
+    User* currentUser =[self.searchArray objectAtIndex:indexPath.row];
+    vc.userId = currentUser.userID;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

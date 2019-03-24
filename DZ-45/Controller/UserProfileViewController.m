@@ -49,7 +49,6 @@ typedef enum {
     
  
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.width)];
-//    imageView.image = [UIImage imageNamed:@"antoha"];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:imageView];
     self.view.backgroundColor = [UIColor whiteColor];

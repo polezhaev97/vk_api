@@ -15,12 +15,18 @@
 #import "ShortProfile.h"
 #import "WallData.h"
 #import "HomeViewController.h"
+#import "NewsFeedItem.h"
+#import "PostOwnerPhoto.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NetworkManager : NSObject
 
+@property (strong, nonatomic) AccessToken* accessToken;
 
 + (instancetype)sharedInstance;
+
+-(NSURLRequest*) getAuthorizeRequest;
 
 - (void) getAllFriendsOnSuccess:(void(^)(NSArray* friends)) success
                     onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
@@ -28,8 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) getUserInfo:(NSString*) userId
            onSuccess:(void(^)(UserExtendedInfo* userInfo)) success
            onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
-
--(void) authorizeUser: (void(^)(BOOL isSuccess)) completion;
 
 -(void) getGroupWall:(NSString*) groupID
           withOffset:(NSInteger) offset
@@ -46,7 +50,16 @@ NS_ASSUME_NONNULL_BEGIN
                    withQuery:(NSString*) querySearch
                    onSuccess:(void(^)(NSArray* posts)) success
                    onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
-    
+
+- (void) getUserNewsFeedOnSuccess:(void(^)(NSArray* news)) success
+                        onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
+
+-(void) getOwnerPhotoUploadServer:(NSString*) userID
+                        onSuccess:(void(^)(NSString* uploadUrl)) success
+                        onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
+
+-(AccessToken*) getTokenFromResponce:(NSString*) query;
+
 
 @end
 

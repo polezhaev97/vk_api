@@ -7,14 +7,12 @@
 //
 
 #import "AppDelegate.h"
-//#import "FriendsViewController.h"
-//#import "LoginViewController.h"
-//#import "UserProfileViewController.h"
-//#import "GroupWallViewController.h"
 #import "HomeViewController.h"
 #import "MenuNavigationController.h"
 #import "NavigationController.h"
-
+#import "Network/NetworkManager.h"
+#import "LoginViewController.h"
+#import "Controller/LoadingViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,12 +23,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    LoginViewController* vc = [[LoginViewController alloc] initWithCompletionBlock:^(AccessToken* token){
+        if (token != nil) {
+            NetworkManager.sharedInstance.accessToken = token;
+            self.window.rootViewController = [self getMainScene];
+        }
+    }];
+    self.window.rootViewController = vc;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    return YES;
+}
+
+-(UIViewController*) getMainScene {
     NavigationController* navController = [[NavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
     MenuNavigationController* menuController = [[MenuNavigationController alloc] initWithStyle:UITableViewStylePlain];
-    
-    //ViewController* controller =[[ViewController alloc] init];
-    //GroupWallViewController* controller = [[GroupWallViewController alloc] init];
-    //UINavigationController* navController =[[UINavigationController alloc] initWithRootViewController:controller];
     
     REFrostedViewController *frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:navController menuViewController:menuController];
     frostedViewController.direction = REFrostedViewControllerDirectionLeft;
@@ -38,39 +46,7 @@
     frostedViewController.liveBlur = YES;
     frostedViewController.delegate = self;
     
-    
-    self.window.rootViewController = frostedViewController;
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    return YES;
+    return frostedViewController;
 }
-
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController didRecognizePanGesture:(UIPanGestureRecognizer *)recognizer
-{
-    
-}
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController willShowMenuViewController:(UIViewController *)menuViewController
-{
-    NSLog(@"willShowMenuViewController");
-}
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController didShowMenuViewController:(UIViewController *)menuViewController
-{
-    NSLog(@"didShowMenuViewController");
-}
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController willHideMenuViewController:(UIViewController *)menuViewController
-{
-    NSLog(@"willHideMenuViewController");
-}
-
-- (void)frostedViewController:(REFrostedViewController *)frostedViewController didHideMenuViewController:(UIViewController *)menuViewController
-{
-    NSLog(@"didHideMenuViewController");
-}
-
 
 @end

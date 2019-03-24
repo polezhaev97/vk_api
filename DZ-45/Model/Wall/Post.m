@@ -20,9 +20,10 @@
         
          NSNumber* date =[dictionary objectForKey:@"date"];
         self.postDate= [NSDate dateWithTimeIntervalSince1970: [date doubleValue]];
-//        NSString* stringURL = [dictionary objectForKey: @"crop_photo"];
-//        self.avatar = [[NSURL alloc] initWithString:stringURL];
+        self.countLike = [dictionary valueForKeyPath:@"likes.count"];
+        self.countComment = [dictionary valueForKeyPath:@"comments.count"];
 
+        
         
     }
     return self;

@@ -23,6 +23,12 @@
     self.postTextLabel =[[UILabel alloc] init];
     self.postTextLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
+    self.countLikeLabel =[[UILabel alloc] init];
+    self.countLikeLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    self.countCommentLabel =[[UILabel alloc] init];
+    self.countCommentLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
     self.userName = [[UILabel alloc] init];
     self.userName.translatesAutoresizingMaskIntoConstraints = NO;
     
@@ -48,6 +54,8 @@
     UIImage *imageComentsButton = [UIImage imageNamed:@"comment"];
 
     [self addSubview:self.postTextLabel];
+    [self addSubview:self.countLikeLabel];
+    [self addSubview:self.countCommentLabel];
     [self addSubview:self.userName];
     [self addSubview:self.datePost];
     [self addSubview:self.userAvatar];
@@ -76,6 +84,8 @@
     NSDictionary* views = @{
                             @"avatar" : self.userAvatar,
                             @"text" : self.postTextLabel,
+                            @"countLike":self.countLikeLabel,
+                            @"countComment":self.countCommentLabel,
                             @"date" : self.datePost,
                             @"name" : self.userName,
                             @"like":self.likeButton,
@@ -86,9 +96,11 @@
                            @"H:|-[avatar(44)]-[name]-|",
                            @"H:[avatar]-[date]-|",
                            @"H:|-[text]-|",
-                           @"H:|-30-[like(30)]-25-[repost(30)]",
+                           @"H:|-30-[like(30)]-6-[countLike(40)]-30-[repost(30)]-6-[countComment(35)]",
                            @"V:|-[avatar(44)]-[text]-[like(30)]-10-|",
                            @"V:[text]-[repost(30)]-10-|",
+                           @"V:[text]-[countLike(30)]-10-|",
+                           @"V:[text]-[countComment(30)]-10-|",
                            @"V:|-[name(18)]-5-[date]-10-[text]"
                            ,nil];
     

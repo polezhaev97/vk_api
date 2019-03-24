@@ -1,8 +1,8 @@
 //
-//  HomeViewController.h
+//  LoadingViewController.h
 //  DZ-45
 //
-//  Created by mbp on 08/03/2019.
+//  Created by mbp on 24/03/2019.
 //  Copyright © 2019 mbp. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController
-
--(void) getUserNewsFeed;
+@interface LoadingViewController : UIViewController
 
 @end
 

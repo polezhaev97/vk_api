@@ -12,7 +12,7 @@
 #import "SecondViewController.h"
 #import "NetworkManager.h"
 #import "UIKit+AFNetworking.h"
-
+#import "NewsFeedItem.h"
 
 #import "FriendsViewController.h"
 #import "GroupWallViewController.h"
@@ -42,14 +42,14 @@
                                            self.profileLable.textAlignment = NSTextAlignmentCenter;
                                            [self.profileLable sizeToFit];
                                            [self.profileImage setImageWithURL:userInfo.bigPhoto placeholderImage:nil];
-                                           
+
                                        } onFailure:^(NSError * _Nonnull error, NSInteger statusCode) {
-                                           
+
                                        }];
-    
+
     self.sectionsArray = [[NSMutableArray alloc] init];
     
-    Section* section1 = [[Section alloc] initWithRows:@[@(myProfile), @(friends), @(group)]];
+    Section* section1 = [[Section alloc] initWithRows:@[@(myProfile), @(friends), @(group), @(news)]];
     
     [self.sectionsArray addObject:section1];
     
@@ -89,7 +89,6 @@
 
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(70, 150, 0, 24)];
         label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        label.backgroundColor = [UIColor redColor];
         label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
 
         self.profileLable = label;
@@ -183,6 +182,10 @@
         GroupWallViewController *groupViewController = [[GroupWallViewController alloc] init];
         NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:groupViewController];
         self.frostedViewController.contentViewController = navigationController;
+    }else if(currentType == news){
+        HomeViewController *newsViewController = [[HomeViewController alloc] init];
+        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:newsViewController];
+        self.frostedViewController.contentViewController = navigationController;
     }
     
     [self.frostedViewController hideMenuViewController];
@@ -231,6 +234,9 @@
             break;
         case group:
             cell.textLabel.text = @"Group";
+            break;
+        case news:
+            cell.textLabel.text = @"News";
             break;
     }
     

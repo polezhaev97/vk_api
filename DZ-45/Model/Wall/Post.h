@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong,nonatomic) NSNumber* postID;
 @property(strong,nonatomic) NSNumber* fromID;
 @property (strong, nonatomic) NSDate* postDate;
+@property(strong,nonatomic) NSNumber* countLike;
+@property(strong,nonatomic) NSNumber* countComment;
+
+
 
 
 //@property(strong, nonatomic) NSURL* avatar;
