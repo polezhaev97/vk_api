@@ -45,12 +45,21 @@
      return [NSURLRequest requestWithURL:nsurl];
 }
 
+-(void) getLogoutRequest {
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *each in cookieStorage.cookies) {
+        [cookieStorage deleteCookie:each];
+    }
+}
+
 -(NSString*) getScope {
     NSInteger photoScope = 4;
     NSInteger wallScope = 8192;
     NSInteger friendsScope = 2;
+    NSInteger videoScope = 16;
+
     
-    NSInteger scope = photoScope + wallScope + friendsScope;
+    NSInteger scope = photoScope + wallScope + friendsScope+ videoScope;
     return [NSString stringWithFormat:@"%ld",scope];;
 }
 
@@ -91,6 +100,7 @@
     
     return token;
 }
+
 
 - (void) getAllFriendsOnSuccess:(void(^)(NSArray* friends)) success
                       onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure{
@@ -421,8 +431,6 @@
      @"5.92", @"version",
      nil];
     
-    //https://pu.vk.com/c855024/upload.php?_query=eyJhY3QiOiJvd25lcl9waG90byIsInNhdmUiOjEsImFwaV93cmFwIjp7InNlcnZlciI6OTk5LCJwaG90byI6IntyZXN1bHR9IiwibWlkIjo5MjI0Njg3NywiaGFzaCI6Ijc0NDhmOTNmNDA1ZGZkNWM0NDRmNWQ0YWFiYjg0OTQyIiwibWVzc2FnZV9jb2RlIjoyLCJwcm9maWxlX2FpZCI6LTZ9LCJvaWQiOjkyMjQ2ODc3LCJtaWQiOjkyMjQ2ODc3LCJzZXJ2ZXIiOjg1NTAyNCwiX29yaWdpbiI6Imh0dHBzOlwvXC9hcGkudmsuY29tIiwiX3NpZyI6ImVkNmY5ZmM2NjA2ZmZkNmI1ZTAyOGFiOWY4MmNlNzEyIn0
-    
     [self.requestOperationManager POST:@"photos.saveOwnerPhoto"
                            parameters:params
                              progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -447,9 +455,57 @@
     
 }
 
--(void) uploadPhoto:(UIImage*) profileImage forPath:(NSString*) uploadURL {
+-(void) getVideoMy:(NSString*) userID
+                        onSuccess:(void(^)(NSArray* videoArray)) success
+                        onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure{
     
-//    NSString* string = [NSString stringWithFormat:@"%@/%@", uploadURL, @"photo"];
+    NSDictionary* params =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     userID,   @"owner_id",
+     @"5.92", @"version",
+     self.accessToken.token, @"access_token",
+     @"17" , @"count",
+     nil];
+    
+    [self.requestOperationManager GET:@"video.get"
+                           parameters:params
+                             progress:^(NSProgress * _Nonnull downloadProgress) {
+                                 //
+                             }
+                              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                  NSLog(@"JSON %@ ", responseObject);
+                                  
+                                  NSArray* videoArray = [responseObject objectForKey:@"response"];
+                                  //NSArray* videoArray = [jsonPost objectForKey:@"items"];
+
+                                  if ([videoArray count] > 1) {
+                                      videoArray = [videoArray subarrayWithRange:NSMakeRange(1, (int)[videoArray count] - 1)];
+                                  } else {
+                                      videoArray = nil;
+                                  }
+
+                                  NSMutableArray* result =[[NSMutableArray alloc] init];
+
+                                  for (NSDictionary* item  in videoArray) {
+                                      VideoModel* video = [[VideoModel alloc] initWithDictionary:item];
+                                      [result addObject:video];
+                                  }
+
+
+                                  success(result);
+//
+//
+//
+//                                  NSLog(@"%@", videoArray);
+                              }
+                              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                  
+                              }];
+    
+    
+}
+
+-(void) uploadPhoto:(UIImage*) profileImage forPath:(NSString*) uploadURL {
     
     NSURL* url = [NSURL URLWithString:uploadURL];
 

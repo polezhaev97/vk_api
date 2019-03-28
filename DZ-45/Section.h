@@ -23,6 +23,7 @@ typedef enum {
     myProfile,
     friends,
     group,
+    video,
     news
 
 }menuRows;

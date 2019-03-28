@@ -6,14 +6,14 @@
 //  Copyright © 2019 mbp. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "NewsViewController.h"
 #import "NavigationController.h"
 #import "NetworkManager.h"
 #import "NewsFeedItem.h"
 #import "PostCell.h"
 #import "WallData.h"
 
-@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,PostCellDelegate>
+@interface NewsViewController ()<UITableViewDelegate,UITableViewDataSource,PostCellDelegate>
 
 @property (assign, nonatomic) BOOL alreadyLoaded;
 @property (strong, nonatomic) NSArray* postArray;
@@ -22,12 +22,17 @@
 
 @end
 
-@implementation HomeViewController
+@implementation NewsViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    [self createTableView];
+    
+}
+
+-(void) createTableView {
     CGRect frame = self.view.frame;
     
     UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
@@ -43,23 +48,17 @@
     self.tableView = tableView;
     
     [self.tableView reloadData];
-
-    
-
-    
     self.title = @"News";
-    
-    
-//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-//    imageView.image = [UIImage imageNamed:@"Balloon"];
-//    imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//    imageView.contentMode = UIViewContentModeScaleAspectFill;
-//    [self.view addSubview:imageView];
-    
 }
 
 -(void) getUserNewsFeed{
     
+    [[NetworkManager sharedInstance] getUserNewsFeedOnSuccess:^(NSArray * _Nonnull news) {
+        self.postArray = news;
+        [self.tableView reloadData];
+    } onFailure:^(NSError * _Nonnull error, NSInteger statusCode) {
+        
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -82,12 +81,8 @@
                                                              
                                                          }];
         
-        [[NetworkManager sharedInstance] getUserNewsFeedOnSuccess:^(NSArray * _Nonnull news) {
-            self.postArray = news;
-            [self.tableView reloadData];
-        } onFailure:^(NSError * _Nonnull error, NSInteger statusCode) {
-            
-        }];
+        [self getUserNewsFeed];
+        
     }
 }
 
@@ -109,9 +104,9 @@
     cell.countCommentLabel.text = [newsFeed.comments stringValue];
     
     cell.countLikeLabel.text = [newsFeed.like stringValue];
-    
-    //cell.userName.text = [NSString stringWithFormat:@"%@ %@", profile.name, profile.surname];
-    
+
+//    cell.userName.text = [NSString stringWithFormat:@"%@ %@", newsFeed., profile.surname];
+
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"dd-MMM-yyyy HH:mm";
     

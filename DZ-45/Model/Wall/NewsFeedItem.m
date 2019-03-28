@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         self.text = [dictionary objectForKey:@"text"];
+        self.name = [dictionary objectForKey:@"text"];
         self.comments = [dictionary valueForKeyPath:@"comments.count"];
         self.like = [dictionary valueForKeyPath:@"likes.count"];
         NSNumber* date =[dictionary objectForKey:@"date"];

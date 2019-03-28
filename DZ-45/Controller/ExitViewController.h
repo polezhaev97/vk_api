@@ -1,8 +1,8 @@
 //
-//  SecondViewController.h
+//  ExitViewController.h
 //  DZ-45
 //
-//  Created by mbp on 08/03/2019.
+//  Created by mbp on 26/03/2019.
 //  Copyright © 2019 mbp. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SecondViewController : UIViewController
+@interface ExitViewController : UIViewController
 
 @end
 

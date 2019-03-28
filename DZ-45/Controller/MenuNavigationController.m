@@ -8,11 +8,12 @@
 
 #import "MenuNavigationController.h"
 #import "UIViewController+REFrostedViewController.h"
-#import "HomeViewController.h"
-#import "SecondViewController.h"
+#import "NewsViewController.h"
+#import "VideoViewController.h"
 #import "NetworkManager.h"
 #import "UIKit+AFNetworking.h"
 #import "NewsFeedItem.h"
+
 
 #import "FriendsViewController.h"
 #import "GroupWallViewController.h"
@@ -49,7 +50,7 @@
 
     self.sectionsArray = [[NSMutableArray alloc] init];
     
-    Section* section1 = [[Section alloc] initWithRows:@[@(myProfile), @(friends), @(group), @(news)]];
+    Section* section1 = [[Section alloc] initWithRows:@[@(myProfile), @(friends), @(video), @(group), @(news)]];
     
     [self.sectionsArray addObject:section1];
     
@@ -59,12 +60,16 @@
     self.tableView.opaque = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.bounces = NO;
+    
+    [self createViewInHeader];
+}
+
+-(void) createViewInHeader {
     self.tableView.tableHeaderView = ({
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.image = [UIImage imageNamed:@"yana"];
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 50.0;
         imageView.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -85,30 +90,26 @@
         [photoButton addTarget:self
                         action:@selector(takePhoto)
               forControlEvents:UIControlEventTouchUpInside];
-
-
+        
+        
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(70, 150, 0, 24)];
         label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
         label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
-
+        
         self.profileLable = label;
-
+        
         [view addSubview:imageView];
         [view addSubview:label];
         [view addSubview:photoButton];
-
+        
         view;
     });
-    
-    
-    
-    
+
 }
 
 - (void)takePhoto {
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
@@ -133,8 +134,8 @@
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:17];
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
-{
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex{
+    
     if (sectionIndex == 0)
         return nil;
     
@@ -178,12 +179,16 @@
         FriendsViewController * friendsViewController = [[FriendsViewController alloc] init];
         NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:friendsViewController];
         self.frostedViewController.contentViewController = navigationController;
+    }else if(currentType == video){
+        VideoViewController *videoViewController = [[VideoViewController alloc] init];
+        NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:videoViewController];
+        self.frostedViewController.contentViewController = navigationController;
     }else if(currentType == group){
         GroupWallViewController *groupViewController = [[GroupWallViewController alloc] init];
         NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:groupViewController];
         self.frostedViewController.contentViewController = navigationController;
     }else if(currentType == news){
-        HomeViewController *newsViewController = [[HomeViewController alloc] init];
+        NewsViewController *newsViewController = [[NewsViewController alloc] init];
         NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:newsViewController];
         self.frostedViewController.contentViewController = navigationController;
     }
@@ -237,6 +242,9 @@
             break;
         case news:
             cell.textLabel.text = @"News";
+            break;
+        case video:
+            cell.textLabel.text = @"Video";
             break;
     }
     

@@ -40,24 +40,7 @@ static NSInteger postInRequest = 20;
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:(NavigationController *)self.navigationController
                                                                             action:@selector(showMenu)];
-    
-    CGRect frame = self.view.frame;
-    
-    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), 44)];
-    self.searchBar.delegate = self;
-    self.navigationItem.titleView = self.searchBar;
-
-    UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-    tableView.backgroundColor = [UIColor whiteColor];
-    tableView.rowHeight = UITableViewAutomaticDimension;
-    tableView.estimatedRowHeight = 800;
-    
-    [tableView registerClass:PostCell.self forCellReuseIdentifier:@"Cell"];
-    [self.view addSubview:tableView];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    
-    self.tableView = tableView;
+    [self createTableView];
     
     self.data = [WallData new];
     self.data.posts = [NSMutableArray new];
@@ -76,6 +59,27 @@ static NSInteger postInRequest = 20;
                 [self getPostFromServer];
                 [self getSearchWall];
     }
+}
+
+-(void) createTableView {
+    
+    CGRect frame = self.view.frame;
+    
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(frame), 44)];
+    self.searchBar.delegate = self;
+    self.navigationItem.titleView = self.searchBar;
+    
+    UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    tableView.backgroundColor = [UIColor whiteColor];
+    tableView.rowHeight = UITableViewAutomaticDimension;
+    tableView.estimatedRowHeight = 800;
+    
+    [tableView registerClass:PostCell.self forCellReuseIdentifier:@"Cell"];
+    [self.view addSubview:tableView];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    
+    self.tableView = tableView;
 }
 
 #pragma mark - API
@@ -143,7 +147,6 @@ static NSInteger postInRequest = 20;
     formatter.dateFormat = @"dd-MMM-yyyy HH:mm";
     
     cell.datePost.text = [formatter stringFromDate:currentPost.postDate];
-;
     
     [cell.userAvatar setImageWithURL:profile.imageURL];
     

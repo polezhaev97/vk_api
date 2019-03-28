@@ -13,9 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NewsFeedItem : NSObject
 
 @property(strong,nonatomic) NSString* text;
+@property(strong,nonatomic) NSString* name;
 @property(strong,nonatomic) NSNumber* comments;
 @property(strong,nonatomic) NSNumber* like;
 @property(strong,nonatomic) NSDate* postDate;
+@property (strong, nonatomic) NSURL* imageURL;
+
 
 - (instancetype)initWithDictionary: (NSDictionary*) dictionary;
 

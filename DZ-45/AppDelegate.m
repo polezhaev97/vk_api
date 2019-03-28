@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "HomeViewController.h"
+#import "NewsViewController.h"
 #import "MenuNavigationController.h"
 #import "NavigationController.h"
 #import "Network/NetworkManager.h"
@@ -37,7 +37,7 @@
 }
 
 -(UIViewController*) getMainScene {
-    NavigationController* navController = [[NavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+    NavigationController* navController = [[NavigationController alloc] initWithRootViewController:[[NewsViewController alloc] init]];
     MenuNavigationController* menuController = [[MenuNavigationController alloc] initWithStyle:UITableViewStylePlain];
     
     REFrostedViewController *frostedViewController = [[REFrostedViewController alloc] initWithContentViewController:navController menuViewController:menuController];

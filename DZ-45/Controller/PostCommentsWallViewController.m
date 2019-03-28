@@ -28,6 +28,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self createTableView];
+    
+}
+
+-(void) createTableView {
+    
     CGRect frame = self.view.frame;
     
     UITableView* tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];

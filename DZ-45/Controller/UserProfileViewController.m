@@ -52,19 +52,8 @@ typedef enum {
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:imageView];
     self.view.backgroundColor = [UIColor whiteColor];
-
     
-self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+imageView.frame.size.height,
-                                                               self.view.frame.size.width,
-                                                               self.view.frame.size.height - imageView.frame.size.height-44)
-                                              style:UITableViewStylePlain];
-    
-    self.tableView.backgroundColor = [UIColor redColor];
-    
-    [self.tableView registerClass:UITableViewCell.self forCellReuseIdentifier:@"Cell"];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.view addSubview:self.tableView];
+    [self creaateTableView];
     
     [[NetworkManager sharedInstance] getUserInfo:self.userId
                                        onSuccess:^(UserExtendedInfo * _Nonnull userInfo) {
@@ -82,6 +71,27 @@ self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+imageView.f
         //
     }];
     
+}
+
+-(void)creaateTableView {
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.width)];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:imageView];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44+imageView.frame.size.height,
+                                                                   self.view.frame.size.width,
+                                                                   self.view.frame.size.height - imageView.frame.size.height-44)
+                                                  style:UITableViewStylePlain];
+    
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Profile";
+    
+    [self.tableView registerClass:UITableViewCell.self forCellReuseIdentifier:@"Cell"];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
 }
 
 #pragma mark - UITableViewDataSourse

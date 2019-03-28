@@ -1,5 +1,5 @@
 //
-//  HomeViewController.h
+//  SecondViewController.h
 //  DZ-45
 //
 //  Created by mbp on 08/03/2019.
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController
-
--(void) getUserNewsFeed;
+@interface VideoViewController : UIViewController
 
 @end
 

@@ -14,9 +14,10 @@
 #import "PostComments.h"
 #import "ShortProfile.h"
 #import "WallData.h"
-#import "HomeViewController.h"
+#import "NewsViewController.h"
 #import "NewsFeedItem.h"
 #import "PostOwnerPhoto.h"
+#import "VideoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 
 -(NSURLRequest*) getAuthorizeRequest;
+
+-(void) getLogoutRequest;
+
 
 - (void) getAllFriendsOnSuccess:(void(^)(NSArray* friends)) success
                     onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
@@ -58,8 +62,12 @@ NS_ASSUME_NONNULL_BEGIN
                         onSuccess:(void(^)(NSString* uploadUrl)) success
                         onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
--(AccessToken*) getTokenFromResponce:(NSString*) query;
+-(void) getVideoMy:(NSString*) userID
+         onSuccess:(void(^)(NSArray* videoArray)) success
+         onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
+
+-(AccessToken*) getTokenFromResponce:(NSString*) query;
 
 @end
 
