@@ -28,9 +28,6 @@ typedef enum {
 @property(strong, nonatomic) UITableView* tableView;
 @property(strong, nonatomic) NSMutableArray* userDataArray;
 
-
-//https://pp.userapi.com/c623425/v623425656/51c62/pQ9k2Ic4fCQ.jpg
-
 @end
 
 @implementation UserProfileViewController
@@ -44,10 +41,7 @@ typedef enum {
                                                                                 target:(NavigationController *)self.navigationController
                                                                                 action:@selector(showMenu)];
     }
-    
-    
-    
- 
+
     UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.width)];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:imageView];

@@ -62,9 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
                         onSuccess:(void(^)(NSString* uploadUrl)) success
                         onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
--(void) getVideoMy:(NSString*) userID
-         onSuccess:(void(^)(NSArray* videoArray)) success
-         onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
+-(void) getMyVideoOnSuccess:(void(^)(NSArray* videoArray)) success
+                onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
 
 -(AccessToken*) getTokenFromResponce:(NSString*) query;

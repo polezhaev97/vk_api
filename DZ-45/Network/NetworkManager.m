@@ -107,7 +107,7 @@
     
     NSDictionary* params =
     [NSDictionary dictionaryWithObjectsAndKeys:
-     @"92246877",   @"user_id",
+     self.accessToken.userID,   @"user_id",
      @"name",       @"order",
      @"photo_50",   @"fields",
      self.accessToken.token, @"access_token",
@@ -118,7 +118,7 @@
     [self.requestOperationManager GET:@"friends.get"
                            parameters:params
                              progress:^(NSProgress * _Nonnull downloadProgress) {
-                                 //
+                                 
                              }
                               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                                   
@@ -409,7 +409,7 @@
                                   
                                   NSString*result   = [data objectForKey:@"upload_url"];
                                   NSLog(@"%@", result);
-                                        [self uploadPhoto:[UIImage imageNamed:@"yana"] forPath:result];
+                                  
                               }
                               failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                                   
@@ -455,16 +455,17 @@
     
 }
 
--(void) getVideoMy:(NSString*) userID
-                        onSuccess:(void(^)(NSArray* videoArray)) success
+
+
+-(void) getMyVideoOnSuccess:(void(^)(NSArray* videoArray)) success
                         onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure{
     
     NSDictionary* params =
     [NSDictionary dictionaryWithObjectsAndKeys:
-     userID,   @"owner_id",
+      self.accessToken.userID,   @"owner_id",
      @"5.92", @"version",
      self.accessToken.token, @"access_token",
-     @"17" , @"count",
+     @"25" , @"count",
      nil];
     
     [self.requestOperationManager GET:@"video.get"

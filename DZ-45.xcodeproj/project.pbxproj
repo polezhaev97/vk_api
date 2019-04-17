@@ -142,14 +142,14 @@
 				10CA898C22216C4F0020C4C5 /* AppDelegate.m */,
 				10DBC812222E8DCD002E6CD8 /* Cells */,
 				10DBC83D2233F4D3002E6CD8 /* Controller */,
-				10CA899922216C500020C4C5 /* Info.plist */,
-				10CA899622216C500020C4C5 /* LaunchScreen.storyboard */,
-				10CA899A22216C500020C4C5 /* main.m */,
-				10CA899422216C500020C4C5 /* Assets.xcassets */,
-				10CA899122216C4F0020C4C5 /* Main.storyboard */,
 				10CA89B4222327FB0020C4C5 /* Model */,
 				10DBC8592233F500002E6CD8 /* Section.h */,
 				10DBC85A2233F500002E6CD8 /* Section.m */,
+				10CA899A22216C500020C4C5 /* main.m */,
+				10CA899922216C500020C4C5 /* Info.plist */,
+				10CA899622216C500020C4C5 /* LaunchScreen.storyboard */,
+				10CA899422216C500020C4C5 /* Assets.xcassets */,
+				10CA899122216C4F0020C4C5 /* Main.storyboard */,
 			);
 			path = "DZ-45";
 			sourceTree = "<group>";

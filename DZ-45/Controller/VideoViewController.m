@@ -33,7 +33,6 @@
                                                                             action:@selector(showMenu)];
     
     self.videoArray = [[NSArray alloc] init];
-    //[self getVideo];
     [self createTableView];
     [self.tableView reloadData];
 }
@@ -64,8 +63,7 @@
 
 -(void) getVideo {
     
-    [[NetworkManager sharedInstance] getVideoMy:@"92246877"
-                                      onSuccess:^(NSArray * _Nonnull videoArray) {
+    [[NetworkManager sharedInstance] getMyVideoOnSuccess:^(NSArray * _Nonnull videoArray) {
                                           self.videoArray = videoArray;
                                           [self.tableView reloadData];
 
